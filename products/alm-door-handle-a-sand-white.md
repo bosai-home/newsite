@@ -1,6 +1,7 @@
-```markdownlayout: product-detail
+```markdown
+layout: product-detail
 title: 旗舰智能手机 Pro
-image: /assets/images/alm-door-handle-a-sand-white.jpg   # 对应你上传的本地图片路径产品亮点最新一代旗舰处理器，性能提升 40%
+image: ../assets/images/alm-door-handle-a-sand-white.jpg   # 对应你上传的本地图片路径产品亮点最新一代旗舰处理器，性能提升 40%
 1 亿像素三摄系统，支持 8K 视频录制
 120Hz AMOLED 高刷屏，显示细腻流畅
 5000mAh 大电池 + 120W 超级闪充
