@@ -9,17 +9,21 @@
         body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
         .product-image { max-height: 600px; object-fit: contain; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .inquiry-btn { font-size: 1.2rem; padding: 12px 30px; }
-        .back-link { margin-bottom: 30px; }
+        .back-link { margin-bottom: 30px; display: inline-block; }
     </style>
 </head>
 <body>
-    <!-- 导航栏（与首页保持一致） -->
+
+    <!-- 导航栏 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand logo" href="./">🔥 TechShop</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand logo" href="../index.html">🔥 TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="./">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">所有产品</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">关于我们</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
@@ -29,7 +33,9 @@
     </nav>
 
     <div class="container my-5">
-       <a href="./" class="btn btn-outline-secondary back-link">&larr; 返回首页</a>
+        <!-- 返回首页按钮 -->
+        <a href="../index.html" class="btn btn-outline-secondary back-link">&larr; 返回首页</a>
+
         <div class="row align-items-center">
             <!-- 产品图片 -->
             <div class="col-lg-6 text-center mb-4 mb-lg-0">
@@ -42,45 +48,46 @@
                 <div class="lead mb-5" style="font-size: 1.1rem; line-height: 1.8;">
                     {{ content }}
                 </div>
-                
-<!-- 询盘按钮 + 模态框 -->
-<div class="mt-5 text-center">
-    <h3 class="mb-4 text-primary">💬 对这款产品感兴趣？</h3>
-    <p class="lead mb-5">点击下方按钮填写询盘信息，我们将在 24 小时内回复您！</p>
 
-    <!-- 触发按钮 -->
-    <button type="button" class="btn btn-primary btn-lg inquiry-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal">
-        📧 发送询盘
-    </button>
-</div>
+                <!-- 询盘按钮 + 模态框 -->
+                <div class="mt-5 text-center">
+                    <h3 class="mb-4 text-primary">💬 对这款产品感兴趣？</h3>
+                    <p class="lead mb-5">点击下方按钮填写询盘信息，我们将在 24 小时内回复您！</p>
 
-<!-- 模态框（弹出表单） -->
-<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="inquiryModalLabel">
-                    产品询盘：{{ page.title }}
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="关闭"></button>
-            </div>
-            <div class="modal-body p-0">
-                <!-- Google 表单嵌入 -->
-     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5DJMqO3bixxs3I-sL9ef5MOGNNif35vbmxYc7ZmSb4XfGzg/viewform?embedded=true&entry.1682356574={{ page.title | url_encode }}" 
-        style="border: none; width: 100%; height: 70vh;"
-        frameborder="0" marginheight="0" marginwidth="0">
-    正在加载…
-</iframe>
-            </div>
-            <div class="modal-footer">
-                <small class="text-muted me-auto">
-                    或者直接邮件联系：your-email@example.com
-                </small>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <!-- 触发按钮 -->
+                    <button type="button" class="btn btn-primary btn-lg inquiry-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                        📧 发送询盘
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- 模态框（弹出询盘表单） -->
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="inquiryModalLabel">
+                        产品询盘：{{ page.title }}
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="关闭"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5DJMqO3bixxs3I-sL9ef5MOGNNif35vbmxYc7ZmSb4XfGzg/viewform?embedded=true&entry.1682356574={{ page.title | url_encode }}"
+                            style="border: none; width: 100%; height: 70vh;"
+                            frameborder="0"
+                            marginheight="0"
+                            marginwidth="0">
+                        正在加载…
+                    </iframe>
+                </div>
+                <div class="modal-footer">
+                    <small class="text-muted me-auto">
+                        或者直接邮件联系：your-email@example.com
+                    </small>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
             </div>
         </div>
     </div>
