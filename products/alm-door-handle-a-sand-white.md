@@ -1,4 +1,5 @@
-```markdown
+---
+---
 layout: product-detail
 title: 旗舰智能手机 Pro
 image: ../assets/images/alm-door-handle-a-sand-white.jpg   # 对应你上传的本地图片路径产品亮点最新一代旗舰处理器，性能提升 40%
