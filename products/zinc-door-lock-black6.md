@@ -7,7 +7,7 @@ image: ../assets/images/zinc-door-lock-black6.jpg
 The Technical & Safety-First Approach
 High-Performance Zinc Alloy Lever Lock (Certified Series) Engineered for demanding environments, this door lock combines structural integrity with advanced surface engineering. Built from high-grade solid zinc alloy (no welding), it offers superior resistance to deformation and mechanical wear.
 
-##Key Features:
+## Key Features:
 
 -	Rigorous Testing: Cycle-tested up to 200,000 operations with zero sagging, ensuring long-term pivot reliability.
 
