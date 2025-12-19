@@ -1,0 +1,53 @@
+---
+layout: default  # 或 page，如果你有自定义布局；如果没有布局可删掉这行
+title: 产品列表
+permalink: /products/  # 访问路径：你的站点/products/
+---
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+    h1 { text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .product-card img { max-width: 100%; height: auto; border-radius: 8px; }
+    .product-card h2 { font-size: 1.4em; margin: 15px 0 10px; }
+    .product-card .price { font-size: 1.3em; color: #e91e63; font-weight: bold; }
+    .product-card a { text-decoration: none; color: inherit; }
+  </style>
+</head>
+<body>
+  <h1>{{ page.title }}</h1>
+  <p style="text-align: center;">欢迎选购我们的优质产品！</p>
+
+  {% if site.products.size == 0 %}
+    <p style="text-align: center;">暂无产品。</p>
+  {% else %}
+    <div class="product-grid">
+      {% for product in site.products %}
+        <div class="product-card">
+          <a href="{{ product.url | relative_url }}">
+            {% if product.image %}
+              <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
+            {% else %}
+              <img src="https://via.placeholder.com/300x200?text=No+Image" alt="无图片">
+            {% endif %}
+            <h2>{{ product.title }}</h2>
+            {% if product.description %}
+              <p>{{ product.description | truncate: 100 }}</p>
+            {% endif %}
+            {% if product.price %}
+              <p class="price">{{ product.price }}</p>
+            {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</body>
+</html>
