@@ -1,6 +1,7 @@
 ---
 layout: product-detail
 title: Durable Aluminum Alloy Lever Door Lock – Silent, Stylish, and Built to Last
+slug: alm-door-handle-h-matt-black
 image: ../assets/images/alm-door-handle-h-matt-black2.jpg
 ---
 
