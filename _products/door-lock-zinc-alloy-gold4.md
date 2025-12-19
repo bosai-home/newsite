@@ -1,6 +1,7 @@
 ---
 layout: product-detail
 title: High Quality Zinc Alloy Lever Door Lock
+slug: door-lock-zinc-alloy-gold4
 image: ../assets/images/door-lock-zinc-alloy-gold4.jpg
 ---
 
