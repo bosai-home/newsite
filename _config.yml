@@ -1,3 +1,8 @@
 title: 我的站点
 description: 一个用 Jekyll 搭建的博客
 theme: jekyll-theme-minimal  # 或其他支持的主题
+
+collections:
+  products:
+    output: true  # 每个产品生成独立页面（可选，如果只需要列表页可设为 false）
+    permalink: /products/:title/  # 产品详情页 URL（可选）
