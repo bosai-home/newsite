@@ -48,23 +48,8 @@ layout: none
 
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ '/' | relative_url }}">TechShop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ '/products/' | relative_url }}">Products</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{ '/about/' | relative_url }}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ '/contact/' | relative_url }}">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+ <!-- Navigation --> 
+ {% include navbar.html %}
 
 <!-- Main Content -->
 <div class="container my-5 py-5">
@@ -128,6 +113,8 @@ layout: none
 }
 </script>
 
+{% include footer.html %}
+    
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
