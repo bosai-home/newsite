@@ -16,4 +16,5 @@ plugins:
 collections:
   products:
     output: true
-    permalink: /products/:slug.html   # 推荐这样写
+    permalink: /products/:name/
+    # /products/:slug.html     这样写permalink可以自定义url
