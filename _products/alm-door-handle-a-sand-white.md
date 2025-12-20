@@ -1,12 +1,24 @@
 ---
 layout: product-detail
-title: Ultra-Quiet Aluminum Alloy Door Handle Lock – Durable, Elegant, and a Quality Choice.
+
+# 基础内容
+title: Ultra-Quiet Aluminum Alloy Door Handle Lock
 slug: alm-door-handle-a-sand-white
-image: ../assets/images/alm-door-handle-a-sand-white.jpg  
-category: door handle
+category: Door Handle
+
+# SEO 核心字段（自动用）
+seo_title: Aluminum Alloy Door Handle Lock | Modern Silent Lever Handle
+seo_description: Premium aluminum alloy door handle lock with silent operation, anodized finish, and modern design. Ideal for residential and commercial projects.
+seo_keywords: aluminum door handle, lever door lock, silent door handle, modern hardware
+
+# 图片
+image: /assets/images/alm-door-handle-a-sand-white.jpg
+
+# 业务属性
 views: 235
 date: 2025-12-20
 ---
+
 
 Elevate the style of your door with this high-end aluminum alloy lever-type door lock, designed for durability and contemporary aesthetics. It perfectly blends robust materials, exquisite craftsmanship, and a user-friendly experience, bringing you a perfect combination of security, comfort, and sophistication. Key Highlights:
 
