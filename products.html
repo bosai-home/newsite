@@ -1,7 +1,7 @@
 ---
 layout: none
 title: 产品列表
-permalink: /products/  # 访问路径：你的站点/products/
+permalink: /products/
 ---
 
 <!DOCTYPE html>
@@ -15,60 +15,27 @@ permalink: /products/  # 访问路径：你的站点/products/
     h1 { text-align: center; }
     p.intro { text-align: center; margin-bottom: 40px; }
 
-    /* 类别区域样式 */
-    .product-category {
-      margin-bottom: 60px;
-    }
+    .product-category { margin-bottom: 60px; }
     .product-category h2 {
-      font-size: 1.8em;
-      text-align: center;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #eee;
-      color: #333;
+      font-size: 1.8em; text-align: center; margin-bottom: 30px;
+      padding-bottom: 10px; border-bottom: 2px solid #eee; color: #333;
     }
-
-    /* 产品网格 */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 30px;
     }
     .product-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid #ddd; border-radius: 8px; padding: 20px;
+      text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-    .product-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .product-card h3 {
-      font-size: 1.4em;
-      margin: 15px 0 10px;
-    }
-    .product-card .price {
-      font-size: 1.3em;
-      color: #e91e63;
-      font-weight: bold;
-    }
-    .product-card a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    /* 未分类样式 */
-    .uncategorized h2 {
-      color: #999;
-    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-card img { max-width: 100%; height: auto; border-radius: 8px; }
+    .product-card h3 { font-size: 1.4em; margin: 15px 0 10px; }
+    .product-card .price { font-size: 1.3em; color: #e91e63; font-weight: bold; }
+    .product-card a { text-decoration: none; color: inherit; display: block; }
+    .uncategorized h2 { color: #999; }
   </style>
 </head>
 <body>
@@ -78,14 +45,25 @@ permalink: /products/  # 访问路径：你的站点/products/
   {% if site.products.size == 0 %}
     <p style="text-align: center;">暂无产品。</p>
   {% else %}
-    {% comment %} 按 category 分组并按类别名称排序 {% endcomment %}
-    {% assign products_by_category = site.products | where_exp: "item", "item.category != nil" | group_by: "category" | sort: "name" %}
+    {% comment %} 手动获取所有唯一类别（去重并排序） {% endcomment %}
+    {% assign categories = "" | split: "" %}
+    {% for product in site.products %}
+      {% if product.category and product.category != "" %}
+        {% assign cat = product.category | strip %}
+        {% unless categories contains cat %}
+          {% assign categories = categories | push: cat %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    {% assign categories = categories | sort %}
 
-    {% for group in products_by_category %}
+    {% comment %} 显示每个类别的产品 {% endcomment %}
+    {% for cat in categories %}
       <section class="product-category">
-        <h2>{{ group.name }}</h2>
+        <h2>{{ cat }}</h2>
         <div class="product-grid">
-          {% for product in group.items %}
+          {% assign category_products = site.products | where_exp: "p", "p.category == cat" %}
+          {% for product in category_products %}
             <div class="product-card">
               <a href="{{ product.url | relative_url }}">
                 {% if product.image %}
@@ -107,8 +85,8 @@ permalink: /products/  # 访问路径：你的站点/products/
       </section>
     {% endfor %}
 
-    {% comment %} 显示未分类的产品（category 未设置的） {% endcomment %}
-    {% assign uncategorized = site.products | where_exp: "item", "item.category == nil or item.category == empty" %}
+    {% comment %} 未分类产品 {% endcomment %}
+    {% assign uncategorized = site.products | where_exp: "p", "p.category == nil or p.category == ''" %}
     {% if uncategorized.size > 0 %}
       <section class="product-category uncategorized">
         <h2>未分类</h2>
