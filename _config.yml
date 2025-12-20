@@ -1,6 +1,17 @@
-title: 我的站点
-description: 一个用 Jekyll 搭建的博客
+title: 你的站点名称  # 如 "我的产品商店"
+description: 站点整体描述，用于搜索引擎和社交分享
+url: https://door-hardware.cn  # 你的站点 URL（自定义域名或 github.io）
+logo: /assets/logo.png  # 可选，站点 logo
+# social:
+#  name: 你的名字或品牌
+#  links:
+#    - https://twitter.com/yourhandle
+#    - https://github.com/yourrepo
+
 theme: jekyll-theme-minimal  # 或其他支持的主题
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 collections:
   products:
