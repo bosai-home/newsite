@@ -3,6 +3,7 @@ layout: product-detail
 title: Product Description – Zinc Alloy Lever Door Lock
 slug: door-lock-zinc-black8
 image: ../assets/images/door-lock-zinc-black8.jpg
+category: door lock
 ---
 
 Upgrade your home with our premium Zinc Alloy Lever Door Lock, a perfect blend of modern aesthetics, ergonomic design, and long-lasting durability. Meticulously crafted with attention to detail, this door lock is engineered to provide not only security but also comfort and elegance for your living spaces.
