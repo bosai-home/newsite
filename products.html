@@ -13,41 +13,127 @@ permalink: /products/  # 访问路径：你的站点/products/
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
     h1 { text-align: center; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-    .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .product-card img { max-width: 100%; height: auto; border-radius: 8px; }
-    .product-card h2 { font-size: 1.4em; margin: 15px 0 10px; }
-    .product-card .price { font-size: 1.3em; color: #e91e63; font-weight: bold; }
-    .product-card a { text-decoration: none; color: inherit; }
+    p.intro { text-align: center; margin-bottom: 40px; }
+
+    /* 类别区域样式 */
+    .product-category {
+      margin-bottom: 60px;
+    }
+    .product-category h2 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+      color: #333;
+    }
+
+    /* 产品网格 */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      font-size: 1.4em;
+      margin: 15px 0 10px;
+    }
+    .product-card .price {
+      font-size: 1.3em;
+      color: #e91e63;
+      font-weight: bold;
+    }
+    .product-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* 未分类样式 */
+    .uncategorized h2 {
+      color: #999;
+    }
   </style>
 </head>
 <body>
   <h1>{{ page.title }}</h1>
-  <p style="text-align: center;">欢迎选购我们的优质产品！</p>
+  <p class="intro">欢迎选购我们的优质产品！</p>
 
   {% if site.products.size == 0 %}
     <p style="text-align: center;">暂无产品。</p>
   {% else %}
-    <div class="product-grid">
-      {% for product in site.products %}
-        <div class="product-card">
-          <a href="{{ product.url | relative_url }}">
-            {% if product.image %}
-              <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
-            {% else %}
-              <img src="https://via.placeholder.com/300x200?text=No+Image" alt="无图片">
-            {% endif %}
-            <h2>{{ product.title }}</h2>
-            {% if product.description %}
-              <p>{{ product.description | truncate: 100 }}</p>
-            {% endif %}
-            {% if product.price %}
-              <p class="price">{{ product.price }}</p>
-            {% endif %}
-          </a>
+    {% comment %} 按 category 分组并按类别名称排序 {% endcomment %}
+    {% assign products_by_category = site.products | where_exp: "item", "item.category != nil" | group_by: "category" | sort: "name" %}
+
+    {% for group in products_by_category %}
+      <section class="product-category">
+        <h2>{{ group.name }}</h2>
+        <div class="product-grid">
+          {% for product in group.items %}
+            <div class="product-card">
+              <a href="{{ product.url | relative_url }}">
+                {% if product.image %}
+                  <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
+                {% else %}
+                  <img src="https://via.placeholder.com/300x200?text=No+Image" alt="无图片">
+                {% endif %}
+                <h3>{{ product.title }}</h3>
+                {% if product.description %}
+                  <p>{{ product.description | truncate: 100 }}</p>
+                {% endif %}
+                {% if product.price %}
+                  <p class="price">¥{{ product.price }}</p>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-    </div>
+      </section>
+    {% endfor %}
+
+    {% comment %} 显示未分类的产品（category 未设置的） {% endcomment %}
+    {% assign uncategorized = site.products | where_exp: "item", "item.category == nil or item.category == empty" %}
+    {% if uncategorized.size > 0 %}
+      <section class="product-category uncategorized">
+        <h2>未分类</h2>
+        <div class="product-grid">
+          {% for product in uncategorized %}
+            <div class="product-card">
+              <a href="{{ product.url | relative_url }}">
+                {% if product.image %}
+                  <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
+                {% else %}
+                  <img src="https://via.placeholder.com/300x200?text=No+Image" alt="无图片">
+                {% endif %}
+                <h3>{{ product.title }}</h3>
+                {% if product.description %}
+                  <p>{{ product.description | truncate: 100 }}</p>
+                {% endif %}
+                {% if product.price %}
+                  <p class="price">¥{{ product.price }}</p>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
   {% endif %}
 </body>
 </html>
