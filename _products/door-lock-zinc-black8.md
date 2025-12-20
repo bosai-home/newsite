@@ -1,6 +1,7 @@
 ---
 layout: product-detail
 title: Product Description – Zinc Alloy Lever Door Lock
+slug: door-lock-zinc-black8
 image: ../assets/images/door-lock-zinc-black8.jpg
 ---
 
