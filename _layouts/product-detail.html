@@ -39,8 +39,14 @@
     <!-- Image -->
     <div class="col-lg-6 mb-4">
       <img src="{{ page.image | relative_url }}"
-           alt="{{ page.title }}"
-           class="img-fluid rounded shadow-sm">
+     alt="{{ page.title }}"
+     class="img-fluid rounded shadow-sm"
+     loading="eager"
+     fetchpriority="high"
+     decoding="async"
+     width="800"
+     height="800">
+
     </div>
 
     <!-- Product Info -->
