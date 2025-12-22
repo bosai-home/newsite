@@ -81,7 +81,8 @@ title: Home
 
 {% assign groups = site.products | group_by_exp: "p", "p.category | default: p.categories | default: 'Other'" %}
 
-{% for group in groups %}
+{% for group in groups limit:3 %}
+
   <h2 class="section-title">{{ group.name }}</h2>
 
   {% assign sorted =
