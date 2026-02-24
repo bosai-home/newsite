@@ -3,7 +3,7 @@ layout: product-detail
 title: China Supplier for Zinc Alloy Lever Door Lock
 slug: zinc-door-lock-black6
 image: ../assets/images/zinc-door-lock-black6.jpg
-category: iron
+category: Door Handle
 ---
 
 The Technical & Safety-First Approach
