@@ -13,7 +13,7 @@ seo_keywords: PVC trim strip,PVC edge trim,PVC decorative strip,PVC edge banding
 
 
 # 图片
-image: /assets/images/ u-shape-pvc-trim-strip.jpg
+image: /assets/images/u-shape-pvc-trim-strip.jpg
 
 # 业务属性
 views: 2350
