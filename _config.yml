@@ -1,5 +1,5 @@
-title: 你的站点名称  # 如 "我的产品商店"
-description: 站点整体描述，用于搜索引擎和社交分享
+title: Bosai Home Products  # 如 "我的产品商店"
+description: Interior Trim strip and Hardware Solution  # 站点整体描述，用于搜索引擎和社交分享
 url: https://door-hardware.cn  # 你的站点 URL（自定义域名或 github.io）
 logo: /assets/logo.png  # 可选，站点 logo
 # social:
