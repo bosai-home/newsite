@@ -3,7 +3,7 @@ layout: product-detail
 title: Robust and Beautiful Aluminum Alloy Lever Door Lock – Quiet and Corrosion-Resistant, a Long-Lasting Lock.
 slug: alm-door-handle-g-matt-black
 image: ../assets/images/alm-door-handle-g-matt-black.jpg   
-category: Door Handle
+category: Door Handles
 views: 239
 date: 2025-12-21
 ---
