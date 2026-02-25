@@ -17,3 +17,7 @@ collections:
   products:
     output: true
     permalink: /products/:slug.html    #  这样写permalink可以自定义url
+
+home_category_order:
+  - Trim Strip
+  - Door Handles
