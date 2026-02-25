@@ -4,7 +4,7 @@ layout: product-detail
 # 基础内容
 title: Ultra-Quiet Aluminum Alloy Door Handle Lock
 slug: alm-door-handle-a-sand-white
-category: Door Handle
+category: Door Handles
 
 # SEO 核心字段（自动用）
 seo_title: Aluminum Alloy Door Handle Lock | Modern Silent Lever Handle
