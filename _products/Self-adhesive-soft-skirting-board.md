@@ -3,6 +3,9 @@ layout: product-detail
 
 # 基础内容
 title: Self-Adhesive PVC Flexible Skirting Board – Waterproof Soft Baseboard Trim for Wholesale & Projects
+price: 9.99
+sample_shipping: 35
+currency: USD
 slug: Self-adhesive-soft-skirting-board 
 category: Trim Strip
 
