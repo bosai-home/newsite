@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
@@ -27,7 +27,6 @@
 
 <body class="bg-light">
 
-<!-- NAV -->
 {% include navbar.html %}
 
 <main class="container my-5">
@@ -40,14 +39,13 @@
     <!-- Image -->
     <div class="col-lg-6 mb-4">
       <img src="{{ page.image | relative_url }}"
-     alt="{{ page.title }}"
-     class="img-fluid rounded shadow-sm"
-     loading="eager"
-     fetchpriority="high"
-     decoding="async"
-     width="800"
-     height="800">
-
+           alt="{{ page.title }}"
+           class="img-fluid rounded shadow-sm"
+           loading="eager"
+           fetchpriority="high"
+           decoding="async"
+           width="800"
+           height="800">
     </div>
 
     <!-- Product Info -->
@@ -66,7 +64,6 @@
         </p>
 
         <div class="d-flex flex-column flex-md-row gap-3">
-
           <!-- Send Inquiry -->
           <button
             class="btn btn-primary btn-lg"
@@ -81,8 +78,37 @@
              class="btn btn-success btn-lg">
             WhatsApp Chat
           </a>
-
         </div>
+
+        <!-- ====== SAMPLE PAYMENT (ONLY IF PRICE EXISTS) ====== -->
+        {% if page.price %}
+        <hr class="my-4">
+
+        <h5 class="fw-bold">Sample Order Payment</h5>
+        <p class="small text-muted">
+          For sample orders only. Bulk orders please contact us.
+        </p>
+
+        <div class="mb-3">
+          <label class="form-label">Sample Quantity</label>
+          <input type="number"
+                 id="sampleQty"
+                 class="form-control"
+                 value="1"
+                 min="1"
+                 style="max-width:150px;">
+        </div>
+
+        <p>
+          Unit Price: <strong>${{ page.price }}</strong><br>
+          Shipping: <strong>${{ page.sample_shipping | default: 0 }}</strong><br>
+          Total: <strong id="sampleTotal"></strong>
+        </p>
+
+        <div id="paypal-button-container"></div>
+        {% endif %}
+        <!-- ====== END SAMPLE PAYMENT ====== -->
+
       </div>
     </div>
   </div>
@@ -136,7 +162,50 @@
 }
 </script>
 
-  {% include footer.html %}
+{% if page.price %}
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency={{ page.currency | default: 'USD' }}"></script>
+
+<script>
+  const unitPrice = {{ page.price }};
+  const shipping = {{ page.sample_shipping | default: 0 }};
+  const qtyInput = document.getElementById('sampleQty');
+  const totalDisplay = document.getElementById('sampleTotal');
+
+  function calculateTotal() {
+    const qty = parseInt(qtyInput.value) || 1;
+    const total = (unitPrice * qty) + shipping;
+    totalDisplay.innerText = "$" + total.toFixed(2);
+    return total.toFixed(2);
+  }
+
+  calculateTotal();
+  qtyInput.addEventListener("input", calculateTotal);
+
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      const total = calculateTotal();
+      return actions.order.create({
+        purchase_units: [{
+          description: "Sample Order - {{ page.title }}",
+          amount: { value: total }
+        }]
+      });
+    },
+
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        window.location.href =
+          "/thank-you/?product={{ page.title | url_encode }}&qty=" +
+          qtyInput.value;
+      });
+    }
+
+  }).render('#paypal-button-container');
+</script>
+{% endif %}
+
+{% include footer.html %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
