@@ -3,7 +3,7 @@ layout: product-detail
 
 # 基础内容
 title: Premium Stainless Steel Silent Hinge for Wholesale & Projects
-slug: stainless-steel-butterfly-hinge-wj-010b 
+slug: stainless-steel-flat-hinge 
 category: Hinges
 
 # SEO 核心字段（自动用）
@@ -13,7 +13,7 @@ seo_keywords: •	Premium Stainless Steel Silent Hinge
 
 
 # 图片
-image: /assets/images/stainless-steel-butterfly-hinge-wj-010b.jpg
+image: /assets/images/stainless-steel-flat-hinge.jpg
 
 # 业务属性
 views: 225
