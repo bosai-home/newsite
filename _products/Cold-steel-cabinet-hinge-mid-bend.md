@@ -13,7 +13,7 @@ seo_keywords: •	Two-Stage Soft Close 3D Concealed Hinge
 
 
 # 图片
-image: /assets/images/ Cold-steel-cabinet-hinge-mid-bend.jpg
+image: /assets/images/Cold-steel-cabinet-hinge-mid-bend.jpg
 
 # 业务属性
 views: 229
