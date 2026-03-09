@@ -19,6 +19,7 @@ collections:
     permalink: /products/:slug.html    #  这样写permalink可以自定义url
 
 home_category_order: # 首页分类排序  
+  - Lock Cylinder
   - Door Handles
   - Hinges
   - Trim Strip
