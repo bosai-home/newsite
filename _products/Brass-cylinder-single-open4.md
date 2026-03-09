@@ -6,7 +6,7 @@ title: Premium All-Brass Lock Cylinder for Wholesale & Projects
 # price: 19.99
 # sample_shipping: 35
 # currency: USD
-slug: Brass-cyliner-single-open4 
+slug: Brass-cylinder-single-open4 
 category: Lock Cylinder
 
 # SEO 核心字段（自动用）
@@ -16,7 +16,7 @@ seo_keywords: •	lock cylinder,lock core, security lock, door lock
 
 
 # 图片
-image: /assets/images/Brass-cyliner-single-open4.jpg
+image: /assets/images/Brass-cylinder-single-open4.jpg
 
 # 业务属性
 views: 2150
