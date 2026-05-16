@@ -1,7 +1,7 @@
 title: Bosai Homes  # 如 "我的产品商店"
 description: Interior Trim strip and Hardware Solution  # 站点整体描述，用于搜索引擎和社交分享
 url: https://decorhardware.cn  # 你的站点 URL（自定义域名或 github.io）
-logo: /assets/logo.png  # 可选，站点 logo
+logo: /assets/images/logo.png  # 可选，站点 logo
 # social:
 #  name: 你的名字或品牌
 #  links:
