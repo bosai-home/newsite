@@ -2,7 +2,7 @@
 layout: product-detail
 
 # 基础内容
-title: Minimist 3D adjustable concealed hinge for project and wholesale:
+title: Minimist 3D adjustable concealed hinge for project and wholesale
 # price: 19.99
 # sample_shipping: 35
 # currency: USD
@@ -12,7 +12,7 @@ category: Hinges
 # SEO 核心字段（自动用）
 seo_title: Minimist 3D adjustable concealed hinge for project and wholesale
  
-seo_description: Minimist 3D adjustable concealed hinge, easy to install. Wholesale supply & OEM available.  
+seo_description: Minimist 3D adjustable concealed hinge, easy to install, Wholesale supply & OEM available
 seo_keywords: hinge, concealed hinge, doorfittings	 
 
 
