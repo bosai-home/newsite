@@ -6,19 +6,18 @@ title: Soft-Close Hidden Hinge (3D Adjustable & 180° Open)
 # price: 19.99
 # sample_shipping: 35
 # currency: USD
-slug: zdy30c2-hydraulic-3d-adjustable-concealed-hinge2
+slug: zdy30c2-hydraulic-3d-adjustable-concealed-hinge
 category: Hinges
 
 # SEO 核心字段（自动用）
 seo_title: Soft-Close Hidden Hinge (3D Adjustable & 180° Open) for project and wholesale
- 
 seo_description: Soft-Close Hidden Hinge (3D Adjustable & 180° Open)
  easy to install. Wholesale supply & OEM available.  
 seo_keywords: hinge, concealed hinge, doorfittings	 
 
 
 # 图片
-image: /assets/images/zdy30c2-hydraulic-3d-adjustable-concealed-hinge2.jpg
+image: /assets/images/zdy30c2-hydraulic-3d-adjustable-concealed-hinge.jpg
 
 # 业务属性
 views: 2150
