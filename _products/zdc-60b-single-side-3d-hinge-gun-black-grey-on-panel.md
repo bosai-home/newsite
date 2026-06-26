@@ -20,7 +20,7 @@ seo_keywords: hinge, concealed hinge, doorfittings
 image: /assets/images/zdc-60b-single-side-3d-hinge-gun-black-grey-on-panel.jpg
 
 # 业务属性
-views: 1150
+views: 13150
 date: 2026-6-26
 ---
 Minimist 3D adjustable concealed hinge for project and wholesale:
