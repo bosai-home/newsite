@@ -19,24 +19,59 @@ title: Home
     body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f8f9fa; }
     .logo { font-size: 1.6rem; font-weight: bold; }
 
-    .home-banner {
-  width: 100%;
-  overflow: hidden;
-}
-
-.home-banner img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .home-banner img {
-    height: 240px;
+  /* 首页 Banner */
+  .home-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
   }
-}
+
+  .home-banner img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .banner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 650px;
+  }
+
+  .banner-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .banner-overlay p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 768px) {
+    .home-banner img {
+      height: 280px;
+    }
+
+    .banner-overlay {
+      left: 6%;
+      right: 6%;
+    }
+
+    .banner-overlay h1 {
+      font-size: 1.7rem;
+    }
+
+    .banner-overlay p {
+      font-size: 0.95rem;
+    }
+  }
     
     .section-title {
       text-align: center;
@@ -69,14 +104,24 @@ title: Home
 <body>
  <!-- Navigation --> 
  {% include navbar.html %}
-
 <!-- 首页 Banner -->
 <div class="home-banner">
+
   <img src="{{ '/assets/images/home-banner.jpg' | relative_url }}"
-       alt="Decorative Door and Cabinet Hardware"
+       alt="BOSAI HOMES Decorative Hardware"
        width="1920"
        height="600">
-</div> 
+
+  <div class="banner-overlay">
+    <h1>Decorative Hardware for Modern Spaces</h1>
+    <p>Door Handles · Cabinet Hardware · Hinges · Locks</p>
+    <a href="{{ '/products/' | relative_url }}" class="btn btn-light">
+      View Products
+    </a>
+  </div>
+
+</div>
+  
 <!-- 主体 -->
 <div class="container my-5">
 
