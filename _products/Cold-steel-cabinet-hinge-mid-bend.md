@@ -16,7 +16,7 @@ seo_keywords: •	Two-Stage Soft Close 3D Concealed Hinge
 image: /assets/images/Cold-steel-cabinet-hinge-mid-bend.jpg
 
 # 业务属性
-views: 229
+views: 29
 date: 2026-3-1
 ---
 Heavy-duty concealed hinge made of thickened cold rolled steel with two-stage hydraulic soft close.
