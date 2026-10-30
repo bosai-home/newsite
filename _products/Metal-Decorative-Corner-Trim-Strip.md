@@ -4,7 +4,7 @@ layout: product-detail
 # 基础内容
 title: Metal Decorative Corner Trim Strip for Wholesale & Project
 slug: Metal-Decorative-Corner-Trim-Strip
-category: Trim Strip
+category: Decorative Trim Strip
 
 # SEO 核心字段（自动用）
 seo_title: remium PVC Edge Trim & Concave Decorative Strips Self Adhesive
