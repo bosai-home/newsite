@@ -4,7 +4,7 @@ layout: product-detail
 # 基础内容
 title: Stainless Steel Self-Adhesive Flat Decorative Trim (Roll Type) for Wholesale & Projects
 slug: Stainless-Steel-Self-Adhesive-Decorative-Trim-Roll 
-category: Trim Strip
+category: Decorative Trim Strip
 
 # SEO 核心字段（自动用）
 seo_title: Stainless Steel Self-Adhesive Decorative Trim Roll | Mirror Finish Flat Metal Strip for Interior Projects  
