@@ -7,7 +7,7 @@ price: 9.99
 sample_shipping: 35
 currency: USD
 slug: Self-adhesive-soft-skirting-board 
-category: Trim Strip
+category: Decorative Trim Strip
 
 # SEO 核心字段（自动用）
 seo_title: Self-Adhesive PVC Skirting Board | Flexible Waterproof Baseboard Trim  
