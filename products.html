@@ -106,10 +106,28 @@ permalink: /products/
     <p class="text-center">No products available.</p>
   {% else %}
 
-    {% assign grouped = site.products | group_by_exp: "product",
-      "product.category | default: product.categories | default: '未分类'" %}
+   {% assign grouped = site.products | group_by_exp: "product",
+  "product.category | default: product.categories | default: '未分类'" %}
 
-    {% for group in grouped %}
+{% assign category_order = "Hinges|Door Handles|Lock Cylinder|Decorative Trim Strip|未分类" | split: "|" %}
+
+{% assign sorted_groups = "" | split: "" %}
+
+{% for category in category_order %}
+  {% for group in grouped %}
+    {% if group.name == category %}
+      {% assign sorted_groups = sorted_groups | push: group %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% for group in grouped %}
+  {% unless category_order contains group.name %}
+    {% assign sorted_groups = sorted_groups | push: group %}
+  {% endunless %}
+{% endfor %}
+
+{% for group in sorted_groups %}
       <section class="product-category {% if group.name == '未分类' %}uncategorized{% endif %}">
         <h2>{{ group.name }}</h2>
 
