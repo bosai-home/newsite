@@ -18,7 +18,7 @@ image: /assets/images/brass-hinge-with-tip.jpg
 
 # 业务属性
 views: 1225
-date: 2026-3-1
+date: 2026-10-30
 ---
 
 The best hardware is the kind you barely notice, until you feel the difference. Our Brushed Brass Butt Hinge brings understated elegance and real solid-brass strength to every door, cabinet, and piece of furniture it supports.
