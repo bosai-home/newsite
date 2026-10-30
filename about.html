@@ -1,3 +1,4 @@
+ 
 ---
 title: About Us
 permalink: /about/
@@ -10,14 +11,23 @@ layout: none
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Title -->
-    <title>About Us | Bosai Homes</title>
+    <!-- SEO -->
+    <title>About Bosai Homes | Door & Building Hardware Supplier</title>
 
-    <!-- SEO Meta -->
-    <meta name="description" content="Learn about bosai, a professional door hardware supplier in China specializing in door locks, handles, and OEM & ODM solutions for global wholesalers and distributors.">
+    <meta name="description" content="Bosai Homes is a door and building hardware sourcing partner offering door handles, hinges, locks, door closers and flexible sourcing solutions for global B2B buyers.">
 
-    <!-- Canonical -->
+    <meta name="keywords" content="door hardware supplier, door handles supplier, door hinges supplier, door locks wholesale, building hardware sourcing, hardware wholesaler">
+
+    <meta name="robots" content="index, follow">
+
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Bosai Homes | Door & Building Hardware">
+    <meta property="og:description" content="Your reliable sourcing partner for door and building hardware. Flexible ordering, multiple product sourcing and responsive service.">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ '/assets/images/about.jpg' | absolute_url }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,89 +35,700 @@ layout: none
     <style>
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #f8f9fa;
-            padding-bottom: 50px;
+            background-color: #ffffff;
+            color: #303846;
+            line-height: 1.7;
         }
+
         .container {
             max-width: 1200px;
         }
-        .rounded.shadow-lg {
-            transition: transform 0.3s ease;
+
+        :root {
+            --bosai-blue: #1769e8;
+            --bosai-dark: #1e293b;
+            --bosai-light: #f5f8fc;
         }
-        .rounded.shadow-lg:hover {
-            transform: scale(1.03);
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(180deg, #f5f8fc 0%, #ffffff 100%);
+            padding: 75px 0 55px;
         }
-        .navbar {
-            padding: 0.8rem 1rem;
+
+        .about-hero h1 {
+            color: var(--bosai-dark);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 750;
+            letter-spacing: -1px;
         }
-        .navbar-brand {
-            font-size: 1.4rem !important;
+
+        .hero-subtitle {
+            color: #64748b;
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto;
         }
+
+        .hero-tagline {
+            color: var(--bosai-blue);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+
+        /* Main Introduction */
+        .about-image {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.10);
+        }
+
+        .section-title {
+            color: var(--bosai-dark);
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .section-label {
+            color: var(--bosai-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.82rem;
+        }
+
+        .intro-text {
+            font-size: 1.04rem;
+            color: #536174;
+            line-height: 1.9;
+        }
+
+        /* Benefits */
+        .benefit-section {
+            background-color: var(--bosai-light);
+            padding: 75px 0;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            border: 1px solid #edf0f5;
+            border-radius: 12px;
+            padding: 30px 24px;
+            height: 100%;
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: #eaf2ff;
+            color: var(--bosai-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--bosai-dark);
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: #64748b;
+            font-size: 0.96rem;
+            margin-bottom: 0;
+        }
+
+        /* Product Categories */
+        .product-section {
+            padding: 75px 0;
+        }
+
+        .product-item {
+            padding: 22px;
+            border: 1px solid #e9edf3;
+            border-radius: 10px;
+            height: 100%;
+            transition: border-color 0.2s ease,
+                        transform 0.2s ease;
+        }
+
+        .product-item:hover {
+            border-color: var(--bosai-blue);
+            transform: translateY(-3px);
+        }
+
+        .product-item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--bosai-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-item p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0;
+        }
+
+        .product-number {
+            color: var(--bosai-blue);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* Who We Serve */
+        .serve-section {
+            background-color: var(--bosai-light);
+            padding: 65px 0;
+        }
+
+        .serve-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .serve-tag {
+            background: #ffffff;
+            border: 1px solid #e3eaf3;
+            border-radius: 30px;
+            padding: 10px 20px;
+            color: #475569;
+            font-size: 0.94rem;
+        }
+
+        /* CTA */
+        .about-cta {
+            background: linear-gradient(135deg, #1769e8, #1254c5);
+            border-radius: 16px;
+            padding: 55px 25px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .about-cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .about-cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .about-cta .btn {
+            background: #ffffff;
+            color: var(--bosai-blue);
+            border-radius: 6px;
+            padding: 12px 30px;
+            font-weight: 700;
+        }
+
+        .about-cta .btn:hover {
+            background: #edf4ff;
+        }
+
+        @media (max-width: 767px) {
+
+            .about-hero {
+                padding: 45px 0 35px;
+            }
+
+            .about-image {
+                height: 280px;
+            }
+
+            .section-title {
+                font-size: 1.65rem;
+            }
+
+            .benefit-section,
+            .product-section {
+                padding: 50px 0;
+            }
+
+            .about-cta {
+                padding: 40px 20px;
+            }
+
+            .about-cta h2 {
+                font-size: 1.6rem;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
- <!-- Navigation --> 
- {% include navbar.html %}
+<!-- Navigation -->
+{% include navbar.html %}
 
-<!-- Main Content -->
-<div class="container my-5 py-5">
 
-    <!-- H1 -->
-    <h1 class="display-5 fw-bold text-center text-primary mb-4">
-        About Bosai
-    </h1>
+<!-- HERO -->
+<section class="about-hero">
+    <div class="container text-center">
 
-    <p class="text-center text-muted mb-5">
-        Reliable Door Hardware Supplier | OEM & ODM Supported | Serving Global B2B Clients
-    </p>
+        <p class="hero-tagline mb-3">
+            YOUR DOOR & BUILDING HARDWARE SOURCING PARTNER
+        </p>
+
+        <h1 class="mb-3">
+            About Bosai Homes
+        </h1>
+
+        <p class="hero-subtitle">
+            Quality Products. Flexible Sourcing. Reliable Service.
+            Helping Global B2B Buyers Source Hardware with Confidence.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ABOUT INTRODUCTION -->
+<section class="container py-5">
 
     <div class="row align-items-center g-5">
 
         <!-- Image -->
-        <div class="col-lg-6 text-center mb-4 mb-lg-0">
-            <img src="{{ '/assets/images/about.jpg' | relative_url }}"
-                 alt="bosai door hardware manufacturing facility"
-                 class="img-fluid rounded shadow-lg"
-                 style="max-height: 480px; object-fit: cover;">
-        </div>
-
-        <!-- Text -->
         <div class="col-lg-6">
- <p class="lead text-muted mb-4">Elevate Door Aesthetics with Precision Engineering</p>
 
-  <p class="fs-5 lh-lg mb-4">At Bosai homes, we specialize in high-performance 3D Adjustable Concealed Hinges, designed for modern architectural minimalist aesthetics. Serving top-tier importers and contractors across North America, Europe, and Australia, we bridge the gap between premium quality and sourcing efficiency.</p>
-
-<p class="fs-5 lh-lg mb-4">Unlike traditional hardware suppliers, we focus on solving the "Last Mile" installation challenges through:  </p>
-   <p class="fs-5 fw-bold text-primary">•	Precision 3D Adjustability: Ensuring a flawless door alignment with zero visible hardware.  </p>
-  <p class="fs-5 fw-bold text-primary"> •	Supply Chain Agility: Low MOQ support with a guaranteed on-time delivery rate of 98%.  </p>
-   <p class="fs-5 fw-bold text-primary">•	Tested Reliability: Consistent quality that meets international standards for high-frequency commercial and residential use. </p>
-   <p class="lead text-muted mb-4">We don't just sell hinges; we provide the structural integrity your high-end projects demand.</p>
+            <img
+                src="{{ '/assets/images/about.jpg' | relative_url }}"
+                alt="Door handles, hinges, locks and building hardware products supplied by Bosai Homes"
+                class="about-image"
+                fetchpriority="high"
+                decoding="async"
+            >
 
         </div>
+
+
+        <!-- Introduction -->
+        <div class="col-lg-6">
+
+            <p class="section-label mb-2">
+                WHO WE ARE
+            </p>
+
+            <h2 class="section-title">
+                Making Hardware Sourcing Easier
+            </h2>
+
+            <p class="intro-text">
+                Bosai Homes is an independent trading and sourcing
+                company specializing in door hardware and building
+                hardware products.
+            </p>
+
+            <p class="intro-text">
+                We work with carefully selected manufacturing partners
+                to help importers, distributors, wholesalers and
+                contractors source practical hardware solutions
+                for residential and commercial applications.
+            </p>
+
+            <p class="intro-text">
+                Our product range includes door handles, hinges,
+                door locks, door closers, cabinet hardware and
+                other related accessories.
+            </p>
+
+            <p class="intro-text mb-0">
+                We understand that growing businesses need more than
+                just a product supplier. They need flexible ordering
+                options, dependable product quality, competitive
+                pricing and responsive communication.
+                That's where we come in.
+            </p>
+
+        </div>
+
     </div>
-</div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="benefit-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <p class="section-label mb-2">
+                WHY WORK WITH US
+            </p>
+
+            <h2 class="section-title">
+                A Practical Partner for Your Business
+            </h2>
+
+            <p class="text-muted mx-auto" style="max-width:750px;">
+                We focus on the things that matter to small and
+                growing hardware businesses.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>📦</span>
+                    </div>
+
+                    <h3>Flexible Order Quantities</h3>
+
+                    <p>
+                        We understand the needs of small and growing
+                        businesses. We aim to offer practical MOQ
+                        options to help customers test products
+                        and manage inventory efficiently.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>🧩</span>
+                    </div>
+
+                    <h3>Multiple Product Sourcing</h3>
+
+                    <p>
+                        Source different hardware categories through
+                        one partner. We help coordinate products
+                        from our manufacturing network, making
+                        purchasing more convenient.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>✓</span>
+                    </div>
+
+                    <h3>Quality Inspection</h3>
+
+                    <p>
+                        We pay attention to product specifications,
+                        appearance, packaging and order requirements.
+                        Quality checks help ensure products meet
+                        agreed requirements before shipment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>🔗</span>
+                    </div>
+
+                    <h3>Reliable Supply Chain</h3>
+
+                    <p>
+                        Through cooperation with manufacturing
+                        partners, we work to provide consistent
+                        product sourcing, competitive quotations
+                        and dependable order coordination.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 5 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>💬</span>
+                    </div>
+
+                    <h3>Responsive Communication</h3>
+
+                    <p>
+                        From product selection and quotations to
+                        sample arrangements and shipment coordination,
+                        we aim to make every step straightforward
+                        and efficient.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 6 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <span>🌍</span>
+                    </div>
+
+                    <h3>Export Coordination</h3>
+
+                    <p>
+                        We assist with product consolidation,
+                        packing arrangements and shipping
+                        coordination to support international
+                        purchasing requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCT CATEGORIES -->
+<section class="product-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <p class="section-label mb-2">
+                OUR PRODUCT RANGE
+            </p>
+
+            <h2 class="section-title">
+                Door & Building Hardware Solutions
+            </h2>
+
+            <p class="text-muted mx-auto" style="max-width:750px;">
+                A range of practical hardware products for distributors,
+                wholesalers and building material suppliers.
+            </p>
+
+        </div>
+
+
+        <div class="row g-3">
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">01</div>
+                    <h3>Door Handles</h3>
+                    <p>Lever handles and other door handle designs.</p>
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">02</div>
+                    <h3>Door Hinges</h3>
+                    <p>Concealed hinges, hydraulic hinges and more.</p>
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">03</div>
+                    <h3>Door Locks</h3>
+                    <p>Lock bodies, cylinders and related hardware.</p>
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">04</div>
+                    <h3>Door Closers</h3>
+                    <p>Hydraulic door closing solutions.</p>
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">05</div>
+                    <h3>Cabinet Hardware</h3>
+                    <p>Cabinet hinges, drawer slides and accessories.</p>
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4">
+
+                <div class="product-item">
+                    <div class="product-number">06</div>
+                    <h3>Other Hardware</h3>
+                    <p>Related door and building hardware products.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHO WE SERVE -->
+<section class="serve-section">
+
+    <div class="container text-center">
+
+        <p class="section-label mb-2">
+            WHO WE SERVE
+        </p>
+
+        <h2 class="section-title">
+            Supporting Growing B2B Businesses
+        </h2>
+
+        <p class="text-muted mx-auto" style="max-width:750px;">
+            We welcome inquiries and cooperation from businesses
+            looking for a flexible and reliable hardware sourcing partner.
+        </p>
+
+
+        <div class="serve-list">
+
+            <span class="serve-tag">Door Hardware Distributors</span>
+
+            <span class="serve-tag">Building Material Wholesalers</span>
+
+            <span class="serve-tag">Hardware Importers</span>
+
+            <span class="serve-tag">Door & Window Suppliers</span>
+
+            <span class="serve-tag">Contractors & Project Buyers</span>
+
+            <span class="serve-tag">Hardware Retail Businesses</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALL TO ACTION -->
+<section class="container my-5 py-3">
+
+    <div class="about-cta">
+
+        <h2>
+            Let's Build a Reliable Partnership
+        </h2>
+
+        <p>
+            Whether you need a small trial order, multiple product
+            sourcing or a long-term supply partner, we are ready
+            to discuss your requirements.
+        </p>
+
+        <a href="{{ '/contact/' | relative_url }}"
+           class="btn">
+
+            Contact Us for a Quote
+
+        </a>
+
+    </div>
+
+</section>
+
 
 <!-- Organization Schema -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bosai Homes",
-  "url": "{{ site.url }}",
-  "description": "Door hardware manufacturer specializing in door locks, handles, cylinders, and OEM & ODM solutions.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "CN",
-    "addressRegion": "Guangdong",
-    "addressLocality": "Guangzhou"
-  }
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bosai Homes",
+    "url": "{{ site.url }}",
+    "description": "Bosai Homes is a door and building hardware trading and sourcing company offering door handles, hinges, locks, door closers and related hardware products for global B2B customers.",
+    "email": "info@decorhardware.cn",
+    "knowsAbout": [
+        "Door Handles",
+        "Door Hinges",
+        "Door Locks",
+        "Door Closers",
+        "Cabinet Hardware",
+        "Building Hardware Sourcing"
+    ]
 }
 </script>
 
+
+<!-- Footer -->
 {% include footer.html %}
-    
+
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
