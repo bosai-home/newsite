@@ -4,7 +4,7 @@ layout: product-detail
 # 基础内容
 title: U-shape Decorative Strip – Premium PVC Grooved Edge Trim for Wholesale & Project
 slug: u-shape-pvc-trim-strip
-category: Trim Strip
+category: Decorative Trim Strip
 
 # SEO 核心字段（自动用）
 seo_title: PVC Trim Strip Self Adhesive Concave U Shaped Edge Banding
