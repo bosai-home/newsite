@@ -4,7 +4,7 @@ layout: product-detail
 # 基础内容
 title: Self-Adhesive PVC Flexible Skirting Board (Waterproof & Bendable) for Wholesale & Projects
 slug: Self-adhesive-soft-skirting-baseboard  
-category: Trim Strip
+category: Decorative Trim Strip
 
 # SEO 核心字段（自动用）
 seo_title: Self-Adhesive PVC Flexible Skirting Board (Waterproof & Bendable) for Wholesale & Projects 
