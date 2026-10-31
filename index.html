@@ -4,188 +4,956 @@ title: Home
 ---
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
 
+  <!-- SEO -->
+  <title>Bosai Homes | Architectural Door Hardware & Building Materials</title>
+
+  <meta name="description"
+        content="Bosai Homes is a China-based supplier of architectural door hardware and building materials, including door handles, concealed hinges, door locks and cabinet hardware. Wholesale, OEM and ODM solutions.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title"
+        content="Bosai Homes | Architectural Hardware Supplier">
+
+  <meta property="og:description"
+        content="Explore door hardware and architectural building materials for wholesalers, distributors and project buyers.">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <style>
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f8f9fa; }
-    .logo { font-size: 1.6rem; font-weight: bold; }
 
-  /* 首页 Banner */
-  .home-banner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
+    /* =========================================
+       BOSAI HOMES - HOMEPAGE STYLES
+       All styles are isolated to home-page
+    ========================================= */
 
-  .home-banner img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .banner-overlay {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-    color: white;
-    max-width: 650px;
-  }
-
-  .banner-overlay h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-
-  .banner-overlay p {
-    font-size: 1.25rem;
-    margin-bottom: 25px;
-  }
-
-  @media (max-width: 768px) {
-    .home-banner img {
-      height: 280px;
+    .home-page {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #263448;
+      background: #ffffff;
+      overflow: hidden;
     }
 
-    .banner-overlay {
-      left: 6%;
-      right: 6%;
+    .home-page a {
+      text-decoration: none;
     }
 
-    .banner-overlay h1 {
-      font-size: 1.7rem;
+    .home-page .home-container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .banner-overlay p {
-      font-size: 0.95rem;
+
+    /* =========================================
+       1. HERO BANNER
+    ========================================= */
+
+    .home-page .home-banner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #173d68;
     }
-  }
-    
-    .section-title {
+
+    .home-page .home-banner img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .home-page .banner-overlay {
+      position: absolute;
+      top: 50%;
+      left: max(calc((100% - 1200px) / 2), 6%);
+      transform: translateY(-50%);
+      color: #ffffff;
+      max-width: 680px;
+      padding-right: 20px;
+    }
+
+    .home-page .banner-overlay h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 750;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .home-page .banner-overlay p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    }
+
+    .home-page .banner-buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .home-page .banner-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 650;
+      transition: all 0.25s ease;
+    }
+
+    .home-page .banner-btn-primary {
+      background: #ffffff;
+      color: #104a91;
+    }
+
+    .home-page .banner-btn-primary:hover {
+      background: #e8f0fc;
+      color: #104a91;
+      transform: translateY(-2px);
+    }
+
+    .home-page .banner-btn-outline {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .home-page .banner-btn-outline:hover {
+      background: #ffffff;
+      color: #104a91;
+    }
+
+
+    /* =========================================
+       2. COMPANY ADVANTAGES
+    ========================================= */
+
+    .home-page .home-advantages {
+      padding: 38px 15px;
+      background: #f3f7fc;
+    }
+
+    .home-page .advantage-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 18px;
+      height: 100%;
+    }
+
+    .home-page .advantage-icon {
+      font-size: 34px;
+      min-width: 42px;
+    }
+
+    .home-page .advantage-item h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #193b6b;
+      margin-bottom: 5px;
+    }
+
+    .home-page .advantage-item p {
+      font-size: 13px;
+      color: #68778a;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+
+    /* =========================================
+       3. SECTION TITLES
+    ========================================= */
+
+    .home-page .section-title {
       text-align: center;
-      margin: 70px 0 40px;
-      font-size: 2.4rem;
-      color: #333;
+      margin: 65px 0 12px;
+      font-size: clamp(27px, 3vw, 34px);
+      font-weight: 750;
+      color: #193b6b;
     }
-    .product-card {
+
+    .home-page .section-subtitle {
       text-align: center;
-      margin-bottom: 30px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #738094;
+      max-width: 750px;
+      margin: 0 auto 35px;
     }
-    .product-card img {
+
+
+    /* =========================================
+       4. PRODUCT CATEGORY
+    ========================================= */
+
+    .home-page .product-category {
+      margin-bottom: 55px;
+    }
+
+    .home-page .category-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 23px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e5edf7;
+    }
+
+    .home-page .category-heading h2 {
+      font-size: 25px;
+      font-weight: 700;
+      color: #193b6b;
+      margin: 0;
+    }
+
+    .home-page .view-all {
+      color: #1555a5;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .home-page .view-all:hover {
+      color: #e58b24;
+    }
+
+    .home-page .product-card {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .home-page .product-card a {
+      display: block;
+      color: #263448;
+    }
+
+    .home-page .product-image-wrap {
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f5f6f8;
+      box-shadow: 0 3px 12px rgba(0, 35, 80, 0.06);
+    }
+
+    .home-page .product-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .home-page .product-card a:hover img {
+      transform: scale(1.055);
+    }
+
+    .home-page .product-card h3 {
+      margin-top: 15px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.5;
+      color: #243b5a;
+    }
+
+    .home-page .product-details {
+      display: inline-block;
+      color: #1555a5;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .home-page .product-card a:hover h3 {
+      color: #1555a5;
+    }
+
+
+    /* =========================================
+       5. OEM & ODM SECTION
+    ========================================= */
+
+    .home-page .oem-section {
+      background: #f3f7fc;
+      padding: 50px 30px;
+      border-radius: 14px;
+      margin: 30px 15px 65px;
+    }
+
+    .home-page .oem-section h2 {
+      font-size: 28px;
+      font-weight: 750;
+      color: #193b6b;
+      margin-bottom: 16px;
+    }
+
+    .home-page .oem-section p {
+      color: #65758a;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .home-page .oem-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin-bottom: 22px;
+    }
+
+    .home-page .oem-list span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #24518a;
+    }
+
+    .home-page .oem-image {
+      width: 100%;
       height: 260px;
       object-fit: cover;
       border-radius: 12px;
-      width: 100%;
     }
-    .product-card h5 {
-      margin-top: 15px;
-      font-size: 1.15rem;
+
+    .home-page .oem-btn {
+      display: inline-block;
+      background: #174f98;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 650;
+      transition: background 0.2s ease;
     }
-    footer {
+
+    .home-page .oem-btn:hover {
+      background: #0e376d;
+      color: white;
+    }
+
+
+    /* =========================================
+       6. INQUIRY CTA
+    ========================================= */
+
+    .home-page .home-cta {
+      background: linear-gradient(110deg, #123d73, #2364a9);
+      color: #ffffff;
+      padding: 48px 25px;
       text-align: center;
-      margin: 60px 0 30px;
-      color: #777;
+      margin: 0 15px 65px;
+      border-radius: 14px;
     }
+
+    .home-page .home-cta h2 {
+      font-size: clamp(25px, 3vw, 33px);
+      font-weight: 750;
+      margin-bottom: 13px;
+    }
+
+    .home-page .home-cta p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #e1eaf7;
+      max-width: 700px;
+      margin: 0 auto 23px;
+    }
+
+    .home-page .home-cta-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #174c91;
+      padding: 12px 30px;
+      font-weight: 700;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .home-page .home-cta-btn:hover {
+      background: #e9f1fb;
+      color: #174c91;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================================
+       7. RESPONSIVE DESIGN
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      .home-page .home-banner img {
+        height: 300px;
+        object-position: center;
+      }
+
+      .home-page .banner-overlay {
+        left: 6%;
+        right: 5%;
+        max-width: 95%;
+      }
+
+      .home-page .banner-overlay h1 {
+        font-size: 30px;
+      }
+
+      .home-page .banner-overlay p {
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      .home-page .banner-btn {
+        padding: 10px 17px;
+        font-size: 14px;
+      }
+
+      .home-page .home-advantages {
+        padding: 22px 12px;
+      }
+
+      .home-page .advantage-item {
+        padding: 12px 8px;
+      }
+
+      .home-page .advantage-icon {
+        font-size: 28px;
+        min-width: 34px;
+      }
+
+      .home-page .advantage-item h3 {
+        font-size: 15px;
+      }
+
+      .home-page .advantage-item p {
+        font-size: 12px;
+      }
+
+      .home-page .section-title {
+        margin-top: 45px;
+      }
+
+      .home-page .product-card img {
+        height: 220px;
+      }
+
+      .home-page .category-heading h2 {
+        font-size: 20px;
+      }
+
+      .home-page .product-card h3 {
+        font-size: 15px;
+      }
+
+      .home-page .oem-section {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+      }
+
+      .home-page .oem-section h2 {
+        font-size: 24px;
+      }
+
+      .home-page .oem-image {
+        height: 220px;
+        margin-top: 15px;
+      }
+
+      .home-page .home-cta {
+        padding: 35px 18px;
+        margin-bottom: 40px;
+      }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+      .home-page .home-banner img {
+        height: 270px;
+      }
+
+      .home-page .banner-overlay h1 {
+        font-size: 26px;
+      }
+
+      .home-page .product-card img {
+        height: 180px;
+      }
+
+      .home-page .category-heading h2 {
+        font-size: 18px;
+      }
+
+    }
+
   </style>
+
 </head>
 
+
 <body>
- <!-- Navigation --> 
- {% include navbar.html %}
-<!-- 首页 Banner -->
-<div class="home-banner">
 
-  <img src="{{ '/assets/images/home-banner.jpg' | relative_url }}"
-       alt="BOSAI HOMES Decorative Hardware"
-       width="1920"
-       height="600">
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-  <div class="banner-overlay">
-    <h1>Decorative Hardware for Projects and Wholesale</h1>
-    <p>Concealed hinges · Hydraulic hinges · Door Handles · Locks</p>
-    <a href="{{ '/products/' | relative_url }}" class="btn btn-light">
-      View Products
-    </a>
-  </div>
+{% include navbar.html %}
 
-</div>
-  
-<!-- 主体 -->
-<div class="container my-5">
 
-{% comment %}
-========================================================
-1️⃣ 先按分类分组
-2️⃣ 每个分类内：
-    - 先按 views 倒序
-    - 再按 date 倒序
-    - 只取前 6 个
-========================================================
-{% endcomment %}
+<main class="home-page">
 
- {% assign groups = site.products | group_by_exp: "p", "p.category | default: p.categories | default: 'Other'" %}
 
-{% for cat in site.home_category_order limit:3 %}
-  
-  {% assign group = groups | where: "name", cat | first %}
-  {% if group %}
+  <!-- =========================================
+       1. HERO BANNER
+  ========================================= -->
 
-  <h2 class="section-title">{{ group.name }}</h2>
+  <section class="home-banner">
 
-  {% assign sorted =
-    group.items
-    | sort: "date"
-    | reverse
-    | sort: "views"
-    | reverse
-  %}
+    <img
+      src="{{ '/assets/images/home-banner.jpg' | relative_url }}"
+      alt="Bosai Homes architectural door hardware and decorative hardware"
+      width="1920"
+      height="600"
+      fetchpriority="high"
+      loading="eager">
 
-  <div class="row">
-    {% for product in sorted limit:6 %}
-      <div class="col-12 col-md-6 col-lg-4 product-card">
-        <a href="{{ product.url | relative_url }}" class="text-decoration-none text-dark">
-          
-          {% if product.image %}
-            <img src="{{ product.image | relative_url }}"
-                 alt="{{ product.title }}"
-                 loading="lazy"
-                 decoding="async"
-                 width="600"
-                 height="400">
-          {% else %}
-            <img src="https://via.placeholder.com/600x400?text=No+Image"
-                 alt="No Image"
-                 loading="lazy"
-                 decoding="async"
-                 width="600"
-                 height="400">
-          {% endif %}
+    <div class="banner-overlay">
 
-          <h5>{{ product.title }}</h5>
+      <h1>
+        Architectural Hardware & Building Materials Supplier
+      </h1>
+
+      <p>
+        Reliable Products for Wholesale & Projects
+        <br>
+        Concealed Hinges · Door Handles · Door Locks · Cabinet Hardware
+      </p>
+
+      <div class="banner-buttons">
+
+        <a href="{{ '/products/' | relative_url }}"
+           class="banner-btn banner-btn-primary">
+
+          View Products →
+
         </a>
+
+        <a href="{{ '/contact/' | relative_url }}"
+           class="banner-btn banner-btn-outline">
+
+          Get a Quote
+
+        </a>
+
       </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       2. WHY CHOOSE BOSAI HOMES
+  ========================================= -->
+
+  <section class="home-advantages">
+
+    <div class="home-container">
+
+      <div class="row g-3">
+
+        <div class="col-6 col-lg-3">
+
+          <div class="advantage-item">
+
+            <div class="advantage-icon">🏭</div>
+
+            <div>
+
+              <h3>Factory Network</h3>
+
+              <p>
+                Coordinated sourcing from selected manufacturers.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-6 col-lg-3">
+
+          <div class="advantage-item">
+
+            <div class="advantage-icon">📦</div>
+
+            <div>
+
+              <h3>Flexible MOQ</h3>
+
+              <p>
+                Trial orders to meet different business needs.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-6 col-lg-3">
+
+          <div class="advantage-item">
+
+            <div class="advantage-icon">🛡️</div>
+
+            <div>
+
+              <h3>Quality Control</h3>
+
+              <p>
+                Product inspection and order coordination.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-6 col-lg-3">
+
+          <div class="advantage-item">
+
+            <div class="advantage-icon">🌎</div>
+
+            <div>
+
+              <h3>Global Supply</h3>
+
+              <p>
+                Supporting wholesalers and distributors worldwide.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       3. PRODUCT CATEGORIES
+       Original Liquid sorting logic preserved
+  ========================================= -->
+
+  <div class="home-container container my-5">
+
+
+    <h2 class="section-title">
+      Our Product Categories
+    </h2>
+
+    <p class="section-subtitle">
+
+      Explore our range of architectural door hardware
+      and building materials for wholesalers,
+      distributors and project buyers.
+
+    </p>
+
+
+    {% comment %}
+    ================================================
+    ORIGINAL PRODUCT DISPLAY LOGIC
+
+    1. Group products by category
+    2. Follow home_category_order
+    3. Sort by date descending
+    4. Sort by views descending
+    5. Display maximum 6 products per category
+
+    ================================================
+    {% endcomment %}
+
+
+    {% assign groups = site.products | group_by_exp: "p", "p.category | default: p.categories | default: 'Other'" %}
+
+
+    {% for cat in site.home_category_order limit:3 %}
+
+      {% assign group = groups | where: "name", cat | first %}
+
+      {% if group %}
+
+
+        <section class="product-category">
+
+
+          <!-- CATEGORY TITLE -->
+
+          <div class="category-heading">
+
+            <h2>
+              {{ group.name }}
+            </h2>
+
+            <a href="{{ '/products/' | relative_url }}"
+               class="view-all">
+
+              View All →
+
+            </a>
+
+          </div>
+
+
+          {% assign sorted =
+            group.items
+            | sort: "date"
+            | reverse
+            | sort: "views"
+            | reverse
+          %}
+
+
+          <!-- PRODUCT GRID -->
+
+          <div class="row g-4">
+
+            {% for product in sorted limit:6 %}
+
+              <div class="col-6 col-md-4 product-card">
+
+                <a href="{{ product.url | relative_url }}">
+
+                  <div class="product-image-wrap">
+
+                    {% if product.image %}
+
+                      <img
+                        src="{{ product.image | relative_url }}"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="400">
+
+                    {% else %}
+
+                      <img
+                        src="https://via.placeholder.com/600x400?text=No+Image"
+                        alt="Product image unavailable"
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="400">
+
+                    {% endif %}
+
+                  </div>
+
+
+                  <h3>
+                    {{ product.title }}
+                  </h3>
+
+                  <span class="product-details">
+                    View Details →
+                  </span>
+
+                </a>
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+
+
+        </section>
+
+
+      {% endif %}
+
     {% endfor %}
+
+
+    <!-- =========================================
+         4. OEM & ODM SOLUTIONS
+    ========================================= -->
+
+    <section class="oem-section">
+
+      <div class="row align-items-center g-4">
+
+
+        <div class="col-lg-7">
+
+          <h2>
+            OEM & ODM Solutions for Your Business
+          </h2>
+
+          <p>
+
+            Looking for customized hardware products
+            or reliable sourcing support?
+
+            Bosai Homes works with selected manufacturing
+            partners to help wholesalers, distributors
+            and project buyers find suitable products
+            for their markets.
+
+          </p>
+
+
+          <div class="oem-list">
+
+            <span>✓ Product Customization</span>
+
+            <span>✓ Private Label</span>
+
+            <span>✓ Custom Packaging</span>
+
+            <span>✓ Product Sourcing</span>
+
+            <span>✓ Wholesale Orders</span>
+
+          </div>
+
+
+          <a href="{{ '/contact/' | relative_url }}"
+             class="oem-btn">
+
+            Discuss Your Requirements →
+
+          </a>
+
+        </div>
+
+
+        <div class="col-lg-5">
+
+          <img
+            src="{{ '/assets/images/contact.png' | relative_url }}"
+            alt="Bosai Homes architectural hardware business and product sourcing"
+            class="oem-image"
+            loading="lazy"
+            decoding="async">
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         5. INQUIRY CTA
+    ========================================= -->
+
+    <section class="home-cta">
+
+      <h2>
+        Looking for a Reliable Hardware Supplier?
+      </h2>
+
+      <p>
+
+        Tell us what products you need.
+
+        Get product information, wholesale quotations
+        and sourcing support for your business.
+
+      </p>
+
+
+      <a href="{{ '/contact/' | relative_url }}"
+         class="home-cta-btn">
+
+        Get a Wholesale Quote →
+
+      </a>
+
+    </section>
+
+
   </div>
 
-  {% endif %}
-{% endfor %}
+</main>
 
-</div>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+{% include footer.html %}
+
+
+
+<!-- BOOTSTRAP JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-{% include footer.html %}
+
+
+
+<!-- =========================================
+     ORGANIZATION SCHEMA
+========================================= -->
+
+<script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bosai Homes",
+  "legalName": "Hangzhou Bosai Home Products Co., LTD.",
+  "url": "{{ site.url }}",
+  "email": "frank@decorhardware.cn",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hangzhou",
+    "addressRegion": "Zhejiang",
+    "addressCountry": "CN"
+  }
+}
+
+</script>
+
+
 </body>
 </html>
- 
+
