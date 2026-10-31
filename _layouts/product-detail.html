@@ -1,211 +1,893 @@
-<!DOCTYPE html> 
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>{{ page.seo_title | default: page.title }} | {{ site.title }}</title>
+  <title>{{ page.seo_title | default: page.title | escape }} | {{ site.title | escape }}</title>
+
   <meta name="description"
-        content="{{ page.seo_description | default: page.excerpt | strip_html | truncate: 160 }}">
+        content="{{ page.seo_description | default: page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}">
+
   {% if page.seo_keywords %}
-  <meta name="keywords" content="{{ page.seo_keywords }}">
+  <meta name="keywords" content="{{ page.seo_keywords | escape }}">
   {% endif %}
+
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="product">
-  <meta property="og:title" content="{{ page.title }}">
-  <meta property="og:description" content="{{ page.seo_description | strip_html }}">
+  <meta property="og:title" content="{{ page.title | escape }} | {{ site.title | escape }}">
+  <meta property="og:description" content="{{ page.seo_description | default: page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}">
+  {% if page.image %}
   <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {% endif %}
   <meta property="og:url" content="{{ page.url | absolute_url }}">
 
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  {% seo %}
+
+  <style>
+    /* ===================================
+       Product Detail - Independent Styles
+    =================================== */
+
+    .product-detail {
+      background: #f7f8fa;
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      padding: 35px 0 50px;
+    }
+
+    .product-detail * {
+      box-sizing: border-box;
+    }
+
+    /* Back Navigation */
+
+    .product-detail .back-link {
+      display: inline-block;
+      color: #526779;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    .product-detail .back-link:hover {
+      color: #c65a45;
+    }
+
+    /* Main Product Area */
+
+    .product-detail .product-main {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.045);
+    }
+
+    /* Product Image */
+
+    .product-detail .product-image-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f6f7f8;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-detail .product-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 15px;
+    }
+
+    /* Product Information */
+
+    .product-detail .product-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #263b50;
+      margin-bottom: 15px;
+    }
+
+    .product-detail .product-category {
+      display: inline-block;
+      background: #edf2f6;
+      color: #46617a;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
+
+    .product-detail .product-summary {
+      color: #687583;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    /* Product Specifications */
+
+    .product-detail .spec-box {
+      background: #f7f9fb;
+      border: 1px solid #e9edf1;
+      border-radius: 8px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+
+    .product-detail .spec-box h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #263b50;
+      margin-bottom: 12px;
+    }
+
+    .product-detail .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 7px 0;
+      border-bottom: 1px solid #e8edf1;
+      font-size: 0.92rem;
+    }
+
+    .product-detail .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .product-detail .spec-label {
+      color: #77838e;
+    }
+
+    .product-detail .spec-value {
+      color: #34495e;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* Inquiry Box */
+
+    .product-detail .inquiry-box {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 10px;
+      padding: 23px;
+      margin-top: 25px;
+    }
+
+    .product-detail .inquiry-box h3 {
+      font-size: 1.25rem;
+      color: #263b50;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .product-detail .inquiry-box p {
+      color: #74808b;
+      font-size: 0.93rem;
+      margin-bottom: 18px;
+    }
+
+    .product-detail .inquiry-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .product-detail .inquiry-buttons .btn {
+      flex: 1;
+      min-width: 160px;
+      padding: 12px 15px;
+      font-weight: 600;
+    }
+
+    .product-detail .btn-inquiry {
+      background: #28557c;
+      color: #fff;
+      border: 1px solid #28557c;
+    }
+
+    .product-detail .btn-inquiry:hover {
+      background: #1c405f;
+      color: #fff;
+    }
+
+    .product-detail .btn-whatsapp {
+      background: #238b59;
+      color: #fff;
+      border: 1px solid #238b59;
+    }
+
+    .product-detail .btn-whatsapp:hover {
+      background: #176d44;
+      color: #fff;
+    }
+
+    /* Product Description */
+
+    .product-detail .description-section {
+      margin-top: 35px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+    }
+
+    .product-detail .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #263b50;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e8edf1;
+    }
+
+    .product-detail .description-content {
+      color: #596571;
+      overflow-wrap: anywhere;
+    }
+
+    .product-detail .description-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .product-detail .description-content h2,
+    .product-detail .description-content h3,
+    .product-detail .description-content h4 {
+      color: #34495e;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    /* PayPal Sample Payment */
+
+    .product-detail .sample-payment {
+      background: #fff;
+      border: 1px solid #e4e9ee;
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 35px;
+    }
+
+    .product-detail .sample-payment h3 {
+      color: #263b50;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .product-detail .sample-payment .payment-note {
+      color: #7b858e;
+      font-size: 0.9rem;
+    }
+
+    .product-detail .sample-total {
+      background: #f5f7f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 18px 0;
+    }
+
+    .product-detail .sample-total p {
+      margin-bottom: 7px;
+      color: #596571;
+    }
+
+    .product-detail .sample-total .total-amount {
+      color: #263b50;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #dfe5ea;
+    }
+
+    .product-detail .payment-error {
+      color: #c0392b;
+      font-size: 0.88rem;
+      margin-top: 10px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 991px) {
+      .product-detail .product-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .product-detail {
+        padding-top: 20px;
+      }
+
+      .product-detail .product-main {
+        padding: 16px;
+      }
+
+      .product-detail .product-title {
+        font-size: 1.5rem;
+        margin-top: 15px;
+      }
+
+      .product-detail .description-section,
+      .product-detail .sample-payment {
+        padding: 20px;
+      }
+
+      .product-detail .inquiry-buttons {
+        flex-direction: column;
+      }
+
+      .product-detail .inquiry-buttons .btn {
+        width: 100%;
+      }
+
+      .product-detail .spec-row {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="bg-light">
 
 {% include navbar.html %}
 
-<main class="container my-5">
+<main class="product-detail">
 
-  <a href="{{ '/products/' | relative_url }}" class="btn btn-outline-secondary mb-4">
-    ← Back to Products
-  </a>
+  <div class="container">
 
-  <div class="row">
-    <!-- Image -->
-    <div class="col-lg-6 mb-4">
-      <img src="{{ page.image | relative_url }}"
-           alt="{{ page.title }}"
-           class="img-fluid rounded shadow-sm"
-           loading="eager"
-           fetchpriority="high"
-           decoding="async"
-           width="800"
-           height="800">
-    </div>
+    <!-- Back Navigation -->
+    <a href="{{ '/products/' | relative_url }}" class="back-link">
+      ← Back to Products
+    </a>
 
-    <!-- Product Info -->
-    <div class="col-lg-6">
-      <h1 class="fw-bold">{{ page.title }}</h1>
 
-      {% if page.category %}
-      <p class="text-muted">Category: {{ page.category }}</p>
-      {% endif %}
+    <!-- Main Product Section -->
+    <div class="product-main">
 
-      <!-- CTA BOX -->
-      <div class="mt-4 p-4 bg-white rounded shadow-sm">
-        <h4 class="mb-3">Looking for Flexible MOQ & Fast Delivery?</h4>
-        <p class="text-muted">
-          Get a tailored quote in 2 hours. Low MOQ support for trial orders + 100% on-time delivery guarantee.
-        </p>
+      <div class="row align-items-start">
 
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <!-- Send Inquiry -->
-          <button
-            class="btn btn-primary btn-lg"
-            data-bs-toggle="modal"
-            data-bs-target="#inquiryModal">
-            Get Instant Quote
-          </button>
+        <!-- Product Image -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
 
-          <!-- WhatsApp -->
-          <a href="https://wa.me/message/HBYDEHV34EL2H1?text={{ page.title | url_encode }}"
-             target="_blank"
-             class="btn btn-success btn-lg">
-            Quick Chat on WhatsApp  
-          </a>
+          <div class="product-image-box">
+
+            {% if page.image %}
+
+              <img
+                src="{{ page.image | relative_url }}"
+                alt="{{ page.title | escape }} - Bosai Homes"
+                width="800"
+                height="800"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              >
+
+            {% else %}
+
+              <img
+                src="https://via.placeholder.com/800x800?text=Product+Image"
+                alt="Product image unavailable"
+                width="800"
+                height="800"
+                loading="eager"
+                decoding="async"
+              >
+
+            {% endif %}
+
+          </div>
+
         </div>
 
-        <!-- ====== SAMPLE PAYMENT (ONLY IF PRICE EXISTS) ====== -->
-        {% if page.price %}
-        <hr class="my-4">
 
-        <h5 class="fw-bold">Sample Order Payment</h5>
-        <p class="small text-muted">
-          For sample orders only. Bulk orders please contact us.
-        </p>
+        <!-- Product Information -->
+        <div class="col-lg-6">
 
-        <div class="mb-3">
-          <label class="form-label">Sample Quantity</label>
-          <input type="number"
-                 id="sampleQty"
-                 class="form-control"
-                 value="1"
-                 min="1"
-                 style="max-width:150px;">
+          <h1 class="product-title">
+            {{ page.title }}
+          </h1>
+
+          {% if page.category %}
+            <span class="product-category">
+              {{ page.category }}
+            </span>
+          {% elsif page.categories %}
+            <span class="product-category">
+              {{ page.categories }}
+            </span>
+          {% endif %}
+
+
+          {% assign summary = page.short_description | default: page.description | default: page.seo_description %}
+
+          {% if summary %}
+            <p class="product-summary">
+              {{ summary | strip_html | escape }}
+            </p>
+          {% endif %}
+
+
+          <!-- Optional Product Specifications -->
+          {% if page.material or page.finish or page.application or page.size or page.customization or page.moq %}
+
+            <div class="spec-box">
+
+              <h3>Product Specifications</h3>
+
+              {% if page.material %}
+                <div class="spec-row">
+                  <span class="spec-label">Material</span>
+                  <span class="spec-value">{{ page.material }}</span>
+                </div>
+              {% endif %}
+
+              {% if page.finish %}
+                <div class="spec-row">
+                  <span class="spec-label">Finish</span>
+                  <span class="spec-value">{{ page.finish }}</span>
+                </div>
+              {% endif %}
+
+              {% if page.application %}
+                <div class="spec-row">
+                  <span class="spec-label">Application</span>
+                  <span class="spec-value">{{ page.application }}</span>
+                </div>
+              {% endif %}
+
+              {% if page.size %}
+                <div class="spec-row">
+                  <span class="spec-label">Size</span>
+                  <span class="spec-value">{{ page.size }}</span>
+                </div>
+              {% endif %}
+
+              {% if page.customization %}
+                <div class="spec-row">
+                  <span class="spec-label">Customization</span>
+                  <span class="spec-value">{{ page.customization }}</span>
+                </div>
+              {% endif %}
+
+              {% if page.moq %}
+                <div class="spec-row">
+                  <span class="spec-label">MOQ</span>
+                  <span class="spec-value">{{ page.moq }}</span>
+                </div>
+              {% endif %}
+
+            </div>
+
+          {% endif %}
+
+
+          <!-- Main Inquiry Box -->
+          <div class="inquiry-box">
+
+            <h3>Interested in This Product?</h3>
+
+            <p>
+              Contact us for wholesale pricing, product specifications,
+              sample arrangements and customized sourcing solutions.
+            </p>
+
+            <div class="inquiry-buttons">
+
+              <!-- Google Form Inquiry -->
+              <button
+                type="button"
+                class="btn btn-inquiry"
+                data-bs-toggle="modal"
+                data-bs-target="#inquiryModal">
+
+                Send Inquiry
+
+              </button>
+
+
+              <!-- WhatsApp -->
+<a
+  href=" https://wa.me/message/HBYDEHV34EL2H1?text={{ 'Hello Bosai Homes, I am interested in this product: ' | append: page.title | append: '. Please send me more details and a quotation.' | url_encode }}"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="btn btn-whatsapp">
+
+  Chat on WhatsApp
+
+</a>
+
+            </div>
+
+          </div>
+
         </div>
-
-        <p>
-          Unit Price: <strong>${{ page.price }}</strong><br>
-          Shipping: <strong>${{ page.sample_shipping | default: 0 }}</strong><br>
-          Total: <strong id="sampleTotal"></strong>
-        </p>
-
-        <div id="paypal-button-container"></div>
-        {% endif %}
-        <!-- ====== END SAMPLE PAYMENT ====== -->
 
       </div>
-    </div>
-  </div>
 
-  <!-- Product Content -->
-  <section class="mt-5">
-    <article class="bg-white p-4 rounded shadow-sm">
-      {{ content }}
-    </article>
-  </section>
+    </div>
+
+
+    <!-- Product Description -->
+    <section class="description-section">
+
+      <h2 class="section-title">
+        Product Description
+      </h2>
+
+      <article class="description-content">
+        {{ content }}
+      </article>
+
+    </section>
+
+
+    <!-- Sample Payment - Only When Price Exists -->
+    {% if page.price %}
+
+      <section class="sample-payment">
+
+        <h3>Sample Order Payment</h3>
+
+        <p class="payment-note">
+          This payment option is intended for sample orders only.
+          For bulk orders, please contact us for a quotation.
+        </p>
+
+        <hr>
+
+        <div class="row g-3">
+
+          <div class="col-md-6">
+
+            <label for="sampleQty" class="form-label fw-semibold">
+              Sample Quantity
+            </label>
+
+            <input
+              type="number"
+              id="sampleQty"
+              class="form-control"
+              value="1"
+              min="1"
+              max="100"
+              step="1"
+              inputmode="numeric"
+              style="max-width:180px;"
+            >
+
+            <small class="text-muted">
+              Minimum quantity: 1
+            </small>
+
+          </div>
+
+          <div class="col-md-6">
+
+            <div class="sample-total">
+
+              <p>
+                Unit Price:
+                <strong id="unitPriceDisplay"></strong>
+              </p>
+
+              <p>
+                Shipping:
+                <strong id="shippingDisplay"></strong>
+              </p>
+
+              <p>
+                Quantity:
+                <strong id="quantityDisplay">1</strong>
+              </p>
+
+              <p class="total-amount">
+                Total:
+                <span id="sampleTotal"></span>
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="paymentError" class="payment-error" role="alert"></div>
+
+        <div class="mt-3">
+
+          <p class="small text-muted">
+            Please check the quantity and total amount before proceeding to PayPal.
+          </p>
+
+          <div id="paypal-button-container"></div>
+
+          <div id="paypalStatus" class="small text-muted mt-2" role="status"></div>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+
+    <!-- Bottom Inquiry -->
+    <section class="inquiry-box text-center mt-4">
+
+      <h3>Need More Information?</h3>
+
+      <p>
+        Send us your requirements. We will be glad to discuss
+        product details and sourcing options with you.
+      </p>
+
+      <a
+        href="https://wa.link/bgghn4"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-success px-4">
+
+        Contact Bosai Homes
+
+      </a>
+
+    </section>
+
+  </div>
 
 </main>
 
-<!-- Google Form Modal -->
-<div class="modal fade" id="inquiryModal" tabindex="-1">
+
+<!-- Google Form Inquiry Modal -->
+<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+
     <div class="modal-content">
 
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title">
-          Product Inquiry – {{ page.title }}
+
+        <h5 class="modal-title" id="inquiryModalLabel">
+          Product Inquiry – {{ page.title | escape }}
         </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+
       </div>
 
       <div class="modal-body p-0">
+
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSf5DJMqO3bixxs3I-sL9ef5MOGNNif35vbmxYc7ZmSb4XfGzg/viewform?embedded=true&entry.1682356574={{ page.title | url_encode }}"
+          title="Product Inquiry Form"
           style="border:0;width:100%;height:75vh;"
           loading="lazy">
         </iframe>
+
       </div>
 
     </div>
+
   </div>
+
 </div>
 
-<!-- Product Schema -->
+
+<!-- Product Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "{{ page.title }}",
-  "image": "{{ page.image | absolute_url }}",
-  "description": "{{ page.seo_description | strip_newlines }}",
-  "brand": {
-    "@type": "Brand",
-    "name": "{{ site.title }}"
-  },
-  "url": "{{ page.url | absolute_url }}"
+  "name": {{ page.title | jsonify }},
+  "image": {% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}[]{% endif %},
+  "description": {{ page.seo_description | default: page.description | default: page.excerpt | strip_html | strip_newlines | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  {% if page.sku %}
+  "sku": {{ page.sku | jsonify }},
+  {% endif %}
+  {% if page.price %}
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": {{ page.price | jsonify }},
+    "url": {{ page.url | absolute_url | jsonify }}
+  }
+  {% endif %}
 }
 </script>
 
+
 {% if page.price %}
-<!-- PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=ARLpy_qWjgEM5C3TAtwNMr_D13HT2NMIQTxqy8H2cIutTQAsnLkk2U_R-Rh0XD6ofCc0tSonuISyFXrA&currency={{ page.currency | default: 'USD' }}"></script>
+
+<!-- PayPal SDK - USD -->
+<script src="https://www.paypal.com/sdk/js?client-id=ARLpy_qWjgEM5C3TAtwNMr_D13HT2NMIQTxqy8H2cIutTQAsnLkk2U_R-Rh0XD6ofCc0tSonuISyFXrA&currency=USD"></script>
 
 <script>
-  const unitPrice = {{ page.price }};
-  const shipping = {{ page.sample_shipping | default: 0 }};
-  const qtyInput = document.getElementById('sampleQty');
-  const totalDisplay = document.getElementById('sampleTotal');
+(function () {
 
-  function calculateTotal() {
-    const qty = parseInt(qtyInput.value) || 1;
+  const unitPrice = Number({{ page.price | jsonify }});
+  const shipping = Number({{ page.sample_shipping | default: 0 | jsonify }});
+
+  const qtyInput = document.getElementById("sampleQty");
+  const unitPriceDisplay = document.getElementById("unitPriceDisplay");
+  const shippingDisplay = document.getElementById("shippingDisplay");
+  const quantityDisplay = document.getElementById("quantityDisplay");
+  const totalDisplay = document.getElementById("sampleTotal");
+  const errorDisplay = document.getElementById("paymentError");
+  const statusDisplay = document.getElementById("paypalStatus");
+
+  function formatUSD(amount) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    }).format(amount);
+  }
+
+  unitPriceDisplay.textContent = formatUSD(unitPrice);
+  shippingDisplay.textContent = formatUSD(shipping);
+
+  function getOrderTotal() {
+
+    const qty = Number(qtyInput.value);
+
+    if (
+      !Number.isInteger(qty) ||
+      qty < 1 ||
+      qty > 100 ||
+      !Number.isFinite(unitPrice) ||
+      !Number.isFinite(shipping) ||
+      unitPrice <= 0 ||
+      shipping < 0
+    ) {
+      errorDisplay.textContent =
+        "Please enter a valid quantity between 1 and 100 and check the product price.";
+      totalDisplay.textContent = "--";
+      return null;
+    }
+
+    errorDisplay.textContent = "";
+
     const total = (unitPrice * qty) + shipping;
-    totalDisplay.innerText = "$" + total.toFixed(2);
+
+    if (!Number.isFinite(total) || total <= 0) {
+      errorDisplay.textContent = "Invalid order total.";
+      totalDisplay.textContent = "--";
+      return null;
+    }
+
+    quantityDisplay.textContent = qty;
+    totalDisplay.textContent = formatUSD(total);
+
     return total.toFixed(2);
   }
 
-  calculateTotal();
-  qtyInput.addEventListener("input", calculateTotal);
+  qtyInput.addEventListener("input", getOrderTotal);
+
+  getOrderTotal();
+
+
+  // Check PayPal SDK
+  if (!window.paypal) {
+
+    statusDisplay.textContent =
+      "PayPal is currently unavailable. Please contact us for sample orders.";
+
+    return;
+  }
+
 
   paypal.Buttons({
-    createOrder: function(data, actions) {
-      const total = calculateTotal();
-      return actions.order.create({
-        purchase_units: [{
-          description: "Sample Order - {{ page.title }}",
-          amount: { value: total }
-        }]
-      });
+
+    onClick: function(data, actions) {
+
+      const total = getOrderTotal();
+
+      if (!total) {
+        return actions.reject();
+      }
+
+      return actions.resolve();
+
     },
 
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        window.location.href =
-          "/thank-you/?product={{ page.title | url_encode }}&qty=" +
-          qtyInput.value;
+
+    createOrder: function(data, actions) {
+
+      const total = getOrderTotal();
+
+      if (!total) {
+        return Promise.reject(new Error("Invalid order amount."));
+      }
+
+      return actions.order.create({
+
+        purchase_units: [{
+
+          description: "Sample Order - {{ page.title | escape }}",
+
+          amount: {
+            currency_code: "USD",
+            value: total
+          }
+
+        }]
+
       });
+
+    },
+
+
+    onApprove: function(data, actions) {
+
+      return actions.order.capture().then(function(details) {
+
+        const orderID = encodeURIComponent(data.orderID || "");
+
+        const productName = encodeURIComponent("{{ page.title | escape }}");
+
+        const quantity = encodeURIComponent(qtyInput.value);
+
+        window.location.href =
+          "{{ '/thank-you/' | relative_url }}" +
+          "?product=" + productName +
+          "&qty=" + quantity +
+          "&order=" + orderID;
+
+      });
+
+    },
+
+
+    onCancel: function() {
+
+      statusDisplay.textContent =
+        "Payment cancelled. You can try again or contact us.";
+
+    },
+
+
+    onError: function(err) {
+
+      console.error("PayPal Error:", err);
+
+      statusDisplay.textContent =
+        "Payment could not be completed. Please contact us for assistance.";
+
     }
 
-  }).render('#paypal-button-container');
+  }).render("#paypal-button-container");
+
+})();
 </script>
+
 {% endif %}
 
+
 {% include footer.html %}
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-</html> 
+</html>
