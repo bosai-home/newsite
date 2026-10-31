@@ -5,91 +5,385 @@ permalink: /products/
 ---
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - {{ site.title }}</title>
 
-  <!-- Bootstrap CSS（关键） -->
+  <title>Products | Architectural Hardware & Building Materials - Bosai Homes</title>
+
+  <meta name="description" content="Explore architectural hardware and building materials from Bosai Homes, including door handles, hinges, lock cylinders and decorative trim strips. Contact us for B2B wholesale inquiries.">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:title" content="Products | Bosai Homes">
+  <meta property="og:description" content="Explore our architectural hardware and building materials for global distributors, wholesalers and project buyers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* ==============================
+       Products Page - Independent CSS
+    ============================== */
+
+    .products-page {
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      background-color: #f8f9fa;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    p.intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .product-category {
-      margin-bottom: 60px;
-    }
-
-    .product-category h2 {
-      font-size: 1.8em;
-      text-align: center;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #eee;
       color: #333;
+      background: #f7f8fa;
+      padding-bottom: 20px;
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
+    .products-page * {
+      box-sizing: border-box;
     }
 
-    .product-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
+    /* Hero Banner */
+
+    .products-hero {
+      background: linear-gradient(120deg, #172b43, #304f70);
+      color: #fff;
+      padding: 65px 20px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+    }
+
+    .products-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .products-hero p {
+      max-width: 760px;
+      margin: 0 auto 25px;
+      font-size: 1.05rem;
+      color: #e3eaf1;
+    }
+
+    .products-hero .hero-btn {
+      display: inline-block;
       background: #fff;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .product-card h3 {
-      font-size: 1.4em;
-      margin: 15px 0 10px;
-    }
-
-    .price {
-      font-size: 1.3em;
-      color: #e91e63;
-      font-weight: bold;
-    }
-
-    .product-card a {
+      color: #1d3b59;
+      padding: 11px 28px;
+      border-radius: 5px;
       text-decoration: none;
-      color: inherit;
-      display: block;
+      font-weight: 600;
+      transition: all 0.2s ease;
     }
 
-    .uncategorized h2 {
-      color: #999;
+    .products-hero .hero-btn:hover {
+      background: #e9eef4;
+      transform: translateY(-2px);
     }
+
+    /* Introduction */
+
+    .products-intro {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 45px 15px 25px;
+    }
+
+    .products-intro h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #263b50;
+      margin-bottom: 12px;
+    }
+
+    .products-intro p {
+      color: #666;
+      margin-bottom: 0;
+    }
+
+    /* Category Navigation */
+
+    .products-category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 15px 35px;
+    }
+
+    .products-category-nav a {
+      display: inline-block;
+      padding: 9px 18px;
+      border: 1px solid #d7dee6;
+      border-radius: 30px;
+      background: #fff;
+      color: #34495e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .products-category-nav a:hover {
+      background: #263f59;
+      border-color: #263f59;
+      color: #fff;
+    }
+
+    /* Product Category */
+
+    .products-page .product-category {
+      margin-bottom: 55px;
+      scroll-margin-top: 90px;
+    }
+
+    .products-page .category-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e3e8ed;
+    }
+
+    .products-page .category-heading h2 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #263b50;
+      margin: 0;
+    }
+
+    .products-page .category-heading span {
+      color: #7a8794;
+      font-size: 0.9rem;
+    }
+
+    .products-page .uncategorized .category-heading h2 {
+      color: #888;
+    }
+
+    /* Product Grid */
+
+    .products-page .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    /* Product Card */
+
+    .products-page .product-card {
+      height: 100%;
+      background: #fff;
+      border: 1px solid #e7e9ec;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.045);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .products-page .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 9px 24px rgba(0, 0, 0, 0.10);
+    }
+
+    .products-page .product-card a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Product Image */
+
+    .products-page .product-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #f5f6f7;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .products-page .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+      transition: transform 0.35s ease;
+    }
+
+    .products-page .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    /* Product Information */
+
+    .products-page .product-info {
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .products-page .product-info h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #263b50;
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+
+    .products-page .product-info p.description {
+      font-size: 0.92rem;
+      color: #737b83;
+      margin: 0 0 15px;
+      line-height: 1.6;
+    }
+
+    .products-page .product-info .price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #c65a45;
+      margin: auto 0 12px;
+    }
+
+    .products-page .view-details {
+      display: inline-block;
+      color: #315878;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-top: auto;
+    }
+
+    .products-page .product-card:hover .view-details {
+      color: #c65a45;
+    }
+
+    /* Bottom CTA */
+
+    .products-cta {
+      background: #edf1f5;
+      text-align: center;
+      padding: 45px 20px;
+      border-radius: 10px;
+      margin: 20px 0 50px;
+    }
+
+    .products-cta h2 {
+      color: #263b50;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .products-cta p {
+      color: #687583;
+      margin-bottom: 22px;
+    }
+
+    .products-cta a {
+      display: inline-block;
+      padding: 11px 28px;
+      background: #263f59;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .products-cta a:hover {
+      background: #172b43;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 991px) {
+      .products-page .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .products-hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .products-hero {
+        padding: 45px 18px;
+      }
+
+      .products-hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .products-hero p {
+        font-size: 0.95rem;
+      }
+
+      .products-intro {
+        padding: 35px 15px 20px;
+      }
+
+      .products-intro h2 {
+        font-size: 1.45rem;
+      }
+
+      .products-category-nav {
+        gap: 8px;
+        padding-bottom: 28px;
+      }
+
+      .products-category-nav a {
+        padding: 7px 13px;
+        font-size: 0.82rem;
+      }
+
+      .products-page .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .products-page .category-heading h2 {
+        font-size: 1.3rem;
+      }
+
+      .products-page .category-heading span {
+        font-size: 0.78rem;
+      }
+
+      .products-page .product-info {
+        padding: 12px;
+      }
+
+      .products-page .product-info h3 {
+        font-size: 0.98rem;
+      }
+
+      .products-page .product-info p.description {
+        font-size: 0.82rem;
+      }
+
+      .products-page .product-info .price {
+        font-size: 1rem;
+      }
+
+      .products-page .view-details {
+        font-size: 0.82rem;
+      }
+
+      .products-cta h2 {
+        font-size: 1.4rem;
+      }
+    }
+
   </style>
 </head>
 
@@ -97,85 +391,193 @@ permalink: /products/
 
 {% include navbar.html %}
 
-<div class="container my-5">
+<div class="products-page">
 
-  <h1>{{ page.title }}</h1>
-  <p class="intro">Welcome to choose our high-quality products!</p>
+  <!-- Hero Banner -->
+  <section class="products-hero">
+    <div class="container">
+      <h1>Architectural Hardware & Building Materials</h1>
 
-  {% if site.products == empty %}
-    <p class="text-center">No products available.</p>
-  {% else %}
+      <p>
+        Explore our product range for distributors, wholesalers and project buyers.
+        Bosai Homes helps connect global buyers with selected manufacturing partners in China.
+      </p>
 
-   {% assign grouped = site.products | group_by_exp: "product",
-  "product.category | default: product.categories | default: '未分类'" %}
+      <a href="{{ '/contact/' | relative_url }}" class="hero-btn">
+        Contact Us
+      </a>
+    </div>
+  </section>
 
-{% assign category_order = "Hinges|Door Handles|Lock Cylinder|Decorative Trim Strip|未分类" | split: "|" %}
 
-{% assign sorted_groups = "" | split: "" %}
+  <main class="container">
 
-{% for category in category_order %}
-  {% for group in grouped %}
-    {% if group.name == category %}
-      {% assign sorted_groups = sorted_groups | push: group %}
+    <!-- Introduction -->
+    <section class="products-intro">
+      <h2>Our Products</h2>
+
+      <p>
+        Discover our selection of architectural hardware and building materials.
+        We support product sourcing, quality coordination and customized supply solutions
+        for international business customers.
+      </p>
+    </section>
+
+
+    {% if site.products == empty %}
+
+      <p class="text-center py-5">No products available at the moment.</p>
+
+    {% else %}
+
+      {% assign grouped = site.products | group_by_exp: "product",
+      "product.category | default: product.categories | default: '未分类'" %}
+
+      {% assign category_order = "Hinges|Door Handles|Lock Cylinder|Decorative Trim Strip|未分类" | split: "|" %}
+
+      {% assign sorted_groups = "" | split: "" %}
+
+      {% for category in category_order %}
+        {% for group in grouped %}
+          {% if group.name == category %}
+            {% assign sorted_groups = sorted_groups | push: group %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      {% for group in grouped %}
+        {% unless category_order contains group.name %}
+          {% assign sorted_groups = sorted_groups | push: group %}
+        {% endunless %}
+      {% endfor %}
+
+
+      <!-- Category Quick Navigation -->
+      <nav class="products-category-nav" aria-label="Product categories">
+
+        {% for group in sorted_groups %}
+          <a href="#category-{{ group.name | slugify }}">
+            {{ group.name }}
+          </a>
+        {% endfor %}
+
+      </nav>
+
+
+      <!-- Product Categories -->
+      {% for group in sorted_groups %}
+
+        <section
+          class="product-category {% if group.name == '未分类' %}uncategorized{% endif %}"
+          id="category-{{ group.name | slugify }}"
+        >
+
+          <div class="category-heading">
+            <h2>{{ group.name }}</h2>
+
+            <span>
+              {{ group.items.size }} Products
+            </span>
+          </div>
+
+
+          <div class="product-grid">
+
+            {% for product in group.items %}
+
+              <article class="product-card">
+
+                <a href="{{ product.url | relative_url }}">
+
+                  <div class="product-image">
+
+                    {% if product.image %}
+
+                      <img
+                        src="{{ product.image | relative_url }}"
+                        alt="{{ product.title | escape }} - Bosai Homes"
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="450"
+                      >
+
+                    {% else %}
+
+                      <img
+                        src="https://via.placeholder.com/600x450?text=No+Image"
+                        alt="Product image unavailable"
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="450"
+                      >
+
+                    {% endif %}
+
+                  </div>
+
+
+                  <div class="product-info">
+
+                    <h3>{{ product.title }}</h3>
+
+                    {% if product.description %}
+                      <p class="description">
+                        {{ product.description | strip_html | truncate: 100 }}
+                      </p>
+                    {% endif %}
+
+                    {% if product.price %}
+                      <p class="price">
+                        ¥{{ product.price }}
+                      </p>
+                    {% endif %}
+
+                    <span class="view-details">
+                      View Details →
+                    </span>
+
+                  </div>
+
+                </a>
+
+              </article>
+
+            {% endfor %}
+
+          </div>
+
+        </section>
+
+      {% endfor %}
+
     {% endif %}
-  {% endfor %}
-{% endfor %}
 
-{% for group in grouped %}
-  {% unless category_order contains group.name %}
-    {% assign sorted_groups = sorted_groups | push: group %}
-  {% endunless %}
-{% endfor %}
 
-{% for group in sorted_groups %}
-      <section class="product-category {% if group.name == '未分类' %}uncategorized{% endif %}">
-        <h2>{{ group.name }}</h2>
+    <!-- Bottom Inquiry CTA -->
+    <section class="products-cta">
 
-        <div class="product-grid">
-          {% for product in group.items %}
-            <div class="product-card">
-              <a href="{{ product.url | relative_url }}">
+      <h2>Looking for a Reliable Product Sourcing Partner?</h2>
 
-                {% if product.image %}
-                  <img src="{{ product.image | relative_url }}"
-                      alt="{{ product.title }}"
-                      loading="lazy"
-                      decoding="async"
-                      width="600"
-                      height="400">
+      <p>
+        Tell us what products you are looking for.
+        We will be glad to discuss your requirements and sourcing needs.
+      </p>
 
-                {% else %}
-                 <img src="https://via.placeholder.com/600x400?text=No+Image"
-                     alt="No Image"
-                     loading="lazy"
-                     decoding="async"
-                     width="600"
-                     height="400">
+      <a href="{{ '/contact/' | relative_url }}">
+        Send an Inquiry
+      </a>
 
-                {% endif %}
+    </section>
 
-                <h3>{{ product.title }}</h3>
-
-                {% if product.description %}
-                  <p>{{ product.description | truncate: 100 }}</p>
-                {% endif %}
-
-                {% if product.price %}
-                  <p class="price">¥{{ product.price }}</p>
-                {% endif %}
-
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-    {% endfor %}
-
-  {% endif %}
+  </main>
 
 </div>
 
+
 {% include footer.html %}
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
