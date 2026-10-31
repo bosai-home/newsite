@@ -6,156 +6,653 @@ layout: none
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Title -->
-    <title>Contact Us | Bosai Homes</title>
+    <!-- SEO -->
+    <title>Contact Us | Bosai Homes - Door Hardware Supplier</title>
 
-    <!-- SEO Meta -->
-    <meta name="description" content="Contact Bosai, a professional interior trim strip and door hardware supplier in China. Get fast quotations, OEM & ODM support, and reliable factory pricing within 24 hours.">
+    <meta name="description"
+          content="Contact Bosai Homes, a China-based supplier of door hardware and architectural trim products. Request wholesale quotations, product catalogs and OEM & ODM support.">
 
-    <!-- Canonical -->
+    <meta name="robots" content="index, follow">
+
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #f8f9fa;
-            padding-bottom: 50px;
+
+    /* ==================================
+       CONTACT PAGE - ISOLATED CSS
+    ================================== */
+
+    .contact-page {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: #243247;
+        background: #ffffff;
+        padding-bottom: 40px;
+        overflow: hidden;
+    }
+
+    .contact-page .contact-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* HERO */
+
+    .contact-page .contact-hero {
+        position: relative;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        background:
+        linear-gradient(90deg,
+        rgba(8, 43, 85, 0.94) 0%,
+        rgba(8, 43, 85, 0.78) 45%,
+        rgba(8, 43, 85, 0.08) 100%),
+        url('{{ "/assets/images/contact.png" | relative_url }}')
+        center/cover no-repeat;
+    }
+
+    .contact-page .contact-hero-content {
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
+        padding: 65px 25px;
+        color: white;
+    }
+
+    .contact-page .contact-hero h1 {
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 750;
+        line-height: 1.2;
+        max-width: 680px;
+        margin-bottom: 20px;
+    }
+
+    .contact-page .contact-hero p {
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 8px;
+    }
+
+    .contact-page .contact-hero-line {
+        width: 90px;
+        height: 4px;
+        background: #ffffff;
+        margin: 22px 0;
+        border-radius: 5px;
+    }
+
+    /* INTRO */
+
+    .contact-page .contact-intro {
+        padding: 65px 15px;
+    }
+
+    .contact-page .contact-main-image {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 12px 35px rgba(0, 35, 80, 0.12);
+    }
+
+    .contact-page .contact-intro-text {
+        font-size: 17px;
+        line-height: 1.9;
+        color: #586579;
+        margin-bottom: 25px;
+    }
+
+    /* CONTACT CARDS */
+
+    .contact-page .contact-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px;
+        border-radius: 13px;
+        margin-bottom: 18px;
+        transition: transform 0.25s ease,
+                    box-shadow 0.25s ease;
+    }
+
+    .contact-page .contact-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 40, 90, 0.10);
+    }
+
+    .contact-page .contact-email-card {
+        background: #edf4ff;
+    }
+
+    .contact-page .contact-whatsapp-card {
+        background: #edf8f0;
+    }
+
+    .contact-page .contact-icon {
+        font-size: 34px;
+        min-width: 45px;
+    }
+
+    .contact-page .contact-card h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #172c4d;
+        margin-bottom: 8px;
+    }
+
+    .contact-page .contact-card p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 8px;
+        color: #536174;
+    }
+
+    .contact-page .contact-card a.contact-email {
+        color: #064bb0;
+        font-weight: 700;
+        text-decoration: none;
+        word-break: break-word;
+    }
+
+    .contact-page .contact-card a.contact-email:hover {
+        text-decoration: underline;
+    }
+
+    .contact-page .contact-whatsapp-btn {
+        display: inline-block;
+        background: #159b50;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 12px 23px;
+        border-radius: 30px;
+        margin-top: 8px;
+        transition: background 0.2s ease;
+    }
+
+    .contact-page .contact-whatsapp-btn:hover {
+        background: #087d3c;
+        color: #ffffff;
+    }
+
+    /* SECTION TITLE */
+
+    .contact-page .contact-section-title {
+        color: #104a9e;
+        font-size: clamp(27px, 3vw, 36px);
+        font-weight: 750;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .contact-page .contact-section-desc {
+        text-align: center;
+        color: #647184;
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    /* GOOGLE FORM */
+
+    .contact-page .contact-form-section {
+        background: #f5f8fd;
+        border: 1px solid #dce7f7;
+        border-radius: 15px;
+        padding: 40px 30px;
+        margin: 10px 15px 50px;
+    }
+
+    .contact-page .contact-form-frame {
+        width: 100%;
+        height: 850px;
+        border: 0;
+        border-radius: 8px;
+        background: white;
+    }
+
+    /* ADVANTAGES */
+
+    .contact-page .contact-benefits {
+        background: #f0f5fc;
+        border-radius: 15px;
+        padding: 35px 20px;
+        margin: 0 15px 45px;
+    }
+
+    .contact-page .contact-benefit {
+        display: flex;
+        align-items: flex-start;
+        gap: 17px;
+        padding: 10px 18px;
+        height: 100%;
+    }
+
+    .contact-page .contact-benefit-icon {
+        font-size: 36px;
+        color: #104a9e;
+        min-width: 43px;
+    }
+
+    .contact-page .contact-benefit h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #19345b;
+        margin-bottom: 8px;
+    }
+
+    .contact-page .contact-benefit p {
+        font-size: 14px;
+        color: #647184;
+        line-height: 1.7;
+        margin-bottom: 0;
+    }
+
+    /* COMPANY ADDRESS */
+
+    .contact-page .contact-address {
+        padding: 25px 30px;
+        border-top: 1px solid #e4ebf5;
+        margin: 0 15px;
+    }
+
+    .contact-page .contact-address h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #19345b;
+        margin-bottom: 12px;
+    }
+
+    .contact-page .contact-address p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #647184;
+        margin-bottom: 4px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+
+        .contact-page .contact-hero {
+            min-height: 340px;
+            background-position: 60% center;
         }
-        .container {
-            max-width: 1200px;
+
+        .contact-page .contact-hero-content {
+            padding: 50px 22px;
         }
-        .rounded.shadow-lg {
-            transition: transform 0.3s ease;
+
+        .contact-page .contact-hero h1 {
+            font-size: 34px;
         }
-        .rounded.shadow-lg:hover {
-            transform: scale(1.03);
+
+        .contact-page .contact-hero p {
+            font-size: 15px;
         }
-        .navbar {
-            padding: 0.8rem 1rem;
+
+        .contact-page .contact-intro {
+            padding: 35px 15px;
         }
-        .navbar-brand {
-            font-size: 1.4rem !important;
+
+        .contact-page .contact-main-image {
+            height: 280px;
+            margin-bottom: 10px;
         }
+
+        .contact-page .contact-card {
+            padding: 19px;
+        }
+
+        .contact-page .contact-form-section {
+            padding: 30px 15px;
+            margin-bottom: 35px;
+        }
+
+        .contact-page .contact-form-frame {
+            height: 900px;
+        }
+
+        .contact-page .contact-benefits {
+            padding: 20px 12px;
+        }
+
+        .contact-page .contact-benefit {
+            padding: 15px 8px;
+        }
+
+        .contact-page .contact-address {
+            padding: 20px 15px;
+        }
+    }
+
+    @media (max-width: 400px) {
+
+        .contact-page .contact-hero h1 {
+            font-size: 29px;
+        }
+
+        .contact-page .contact-icon {
+            font-size: 29px;
+            min-width: 35px;
+        }
+
+        .contact-page .contact-whatsapp-btn {
+            padding: 11px 15px;
+            font-size: 14px;
+        }
+    }
+
     </style>
+
 </head>
 
 <body>
 
-<!-- Navigation -->
+<!-- NAVIGATION -->
 {% include navbar.html %}
 
-<!-- Main -->
-<div class="container my-5 py-5">
+<main class="contact-page">
 
-    <!-- H1 -->
-    <h1 class="display-5 text-center fw-bold text-primary mb-4">
-        Contact Us – Let’s Build Your Next Architectural Project with Precision Hardware 
-    </h1>
+    <!-- HERO BANNER -->
 
-    <p class="text-center text-muted mb-5">
-        OEM & ODM Supported &nbsp; | &nbsp; Fast Quotation &nbsp; | &nbsp; Serving Wholesalers & Distributors Worldwide
-    </p>
+    <section class="contact-hero">
 
-    <div class="row align-items-center g-5">
+        <div class="contact-hero-content">
 
-        <!-- Image -->
-        <div class="col-lg-6 text-center">
-            <img src="{{ '/assets/images/contact.png' | relative_url }}"
-                 alt="door hardware supplier at wholesale pricing"
-                 class="img-fluid rounded shadow-lg"
-                 style="max-height: 480px; object-fit: cover;">
-        </div>
+            <h1>
+                Contact Us – Let's Build Your Next Architectural Project with Precision Hardware
+            </h1>
 
-        <!-- Contact Info -->
-        <div class="col-lg-6">
-            <p class="lead text-muted mb-4">
-                Partner with a trusted supplier of 3D Concealed Adjustable Hinges & Door Locks. Whether you need custom OEM solutions, low-MOQ trial orders, or fast CAD/3D specs, our engineering team is here to help. 
+            <div class="contact-hero-line"></div>
+
+            <p>
+                OEM & ODM Supported &nbsp; | &nbsp;
+                Fast Quotation
             </p>
 
-            <div class="mb-4">
-                <h5 class="fw-bold">📧 Email</h5>
-                 <p> Request an Official Quote & 2026 Latest Catalog </p>
-                <p><a href="mailto:frank@decorhardware.cn">frank@decorhardware.cn</a></p>
-            </div>
+            <p>
+                Serving Wholesalers & Distributors Worldwide
+            </p>
 
-            <div class="mb-4">
-                <h5 class="fw-bold">📞 Phone / WhatsApp</h5>
-                <p> Need Immediate Technical Support or Quick Quote? </p>
-                 <p>	Skip the wait and chat directly with customer service via WhatsApp. </p>
-               <!-- <p>+86 123 45** 8899 (Mon–Fri, 9:00–18:00 GMT+8)</p> -->
-                         <!-- WhatsApp -->
-         <!-- <a href="https://wa.me/8613372507726?text={{ page.title | url_encode }}" -->
-            <a href="https://wa.link/bgghn4?text={{ page.title | url_encode }}"
-             target="_blank"
-             class="btn btn-success btn-lg">
-            Quick Chat on WhatsApp 
-          </a>
-            </div>
         </div>
-    </div>
 
-    <!-- Inquiry Form -->
-    <div class="mt-5 pt-4">
-        <h2 class="text-center text-primary mb-3">Get Instant Quote</h2>
-        <p class="text-center lead mb-4">
-            Need 2026 latest catalog or wholesale pricing? Submit your requirements below. Our sales team will reply within 24 hours.
-        </p>
+    </section>
 
-        <div class="ratio ratio-16x9 border rounded shadow-sm" style="max-height: 900px;">
+
+    <div class="contact-container">
+
+        <!-- INTRO & CONTACT INFORMATION -->
+
+        <section class="contact-intro">
+
+            <div class="row align-items-center g-5">
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-6">
+
+                    <img
+                        src="{{ '/assets/images/contact.png' | relative_url }}"
+                        alt="Bosai Homes door hardware and architectural building materials supplier"
+                        class="contact-main-image"
+                        loading="lazy">
+
+                </div>
+
+
+                <!-- CONTACT DETAILS -->
+
+                <div class="col-lg-6">
+
+                    <p class="contact-intro-text">
+                        Partner with Bosai Homes for door hardware and
+                        architectural building materials.
+
+                        Whether you need wholesale products, custom
+                        OEM solutions, low-MOQ trial orders, or product
+                        specifications, we are ready to assist your business.
+                    </p>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-card contact-email-card">
+
+                        <div class="contact-icon">📧</div>
+
+                        <div>
+
+                            <h3>Email</h3>
+
+                            <p>
+                                Request a product catalog,
+                                wholesale quotation or business cooperation.
+                            </p>
+
+                            <a class="contact-email"
+                               href="mailto:frank@decorhardware.cn">
+
+                                frank@decorhardware.cn
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WHATSAPP -->
+
+                    <div class="contact-card contact-whatsapp-card">
+
+                        <div class="contact-icon">💬</div>
+
+                        <div>
+
+                            <h3>Phone / WhatsApp</h3>
+
+                            <p>
+                                Need a quick quotation or product information?
+                                Contact our sales team directly via WhatsApp.
+                            </p>
+
+                            <a
+                                href="https://wa.me/message/HBYDEHV34EL2H1?text={{ page.title | url_encode }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-whatsapp-btn">
+
+                                WhatsApp Chat →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INQUIRY FORM -->
+
+        <section class="contact-form-section">
+
+            <h2 class="contact-section-title">
+                Get Your Wholesale Quote
+            </h2>
+
+            <p class="contact-section-desc">
+                Need our latest product catalog or wholesale pricing?
+                Submit your requirements below.
+                Our sales team will aim to reply within 24 hours.
+            </p>
+
             <iframe
+                class="contact-form-frame"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSf5DJMqO3bixxs3I-sL9ef5MOGNNif35vbmxYc7ZmSb4XfGzg/viewform?embedded=true"
-                style="border:none;width:100%;height:100%;"
-                loading="lazy">
-                Loading…
+                loading="lazy"
+                title="Bosai Homes Product Inquiry and Quotation Form">
+
+                Loading contact form...
+
             </iframe>
-        </div>
+
+            <noscript>
+                Please contact us by email:
+                frank@decorhardware.cn
+            </noscript>
+
+        </section>
 
 
-     <!--   <noscript>
-            Please contact us directly via email at frank@decorhardware.cn for quotations, OEM cooperation, and wholesale inquiries.
-        </noscript> -->
-    </div>
-    <div class="mb-4">            
-    <p>	⏱️ On-Time Delivery Guarantee: 100% schedule compliance for volume orders. </p>
+        <!-- WHY CHOOSE BOSAI -->
 
- <p>	📦 Flexible MOQ: Start small with trial orders to test quality. </p>
+        <section class="contact-benefits">
 
- <p>🛡️ Strict Quality Control: Heavy-duty load test reports & cycle durability testing available. </p>
-    </div>
-    <div class="mb-4">
-                <h5 class="fw-bold">📍 Company Address</h5>
-                <p> Hangzhou Bosai Home Products Co., LTD. </p>
-                <p>Hangzhou,Zhejiang, China</p>
+            <div class="row g-3">
+
+                <div class="col-md-4">
+
+                    <div class="contact-benefit">
+
+                        <div class="contact-benefit-icon">🚚</div>
+
+                        <div>
+
+                            <h3>Reliable Delivery</h3>
+
+                            <p>
+                                Coordinated production and shipping
+                                arrangements for your orders.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-benefit">
+
+                        <div class="contact-benefit-icon">📦</div>
+
+                        <div>
+
+                            <h3>Flexible MOQ</h3>
+
+                            <p>
+                                Start with trial orders to evaluate
+                                product quality and market demand.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-benefit">
+
+                        <div class="contact-benefit-icon">🛡️</div>
+
+                        <div>
+
+                            <h3>Quality Control</h3>
+
+                            <p>
+                                Product inspection and quality
+                                coordination before shipment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-</div>
 
-<!-- Organization Schema -->
+        </section>
+
+
+        <!-- COMPANY ADDRESS -->
+
+        <section class="contact-address">
+
+            <h3>📍 Company Address</h3>
+
+            <p>
+                <strong>Hangzhou Bosai Home Products Co., LTD.</strong>
+            </p>
+
+            <p>
+                Hangzhou, Zhejiang, China
+            </p>
+
+            <p>
+                Email:
+                <a href="mailto:frank@decorhardware.cn">
+                    frank@decorhardware.cn
+                </a>
+            </p>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+{% include footer.html %}
+
+
+<!-- BOOTSTRAP JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- ORGANIZATION SCHEMA -->
+
 <script type="application/ld+json">
+
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Bosai Homes",
+  "legalName": "Hangzhou Bosai Home Products Co., LTD.",
   "url": "{{ site.url }}",
   "email": "frank@decorhardware.cn",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "CN",
-    "addressRegion": "Hangzhou",
-    "addressLocality": "Hangzhou"
+    "addressLocality": "Hangzhou",
+    "addressRegion": "Zhejiang",
+    "addressCountry": "CN"
   }
 }
+
 </script>
-{% include footer.html %}
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
