@@ -1,51 +1,85 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+ <nav class="navbar navbar-expand-lg navbar-dark shadow-sm"
+     style="background-color: #173B63;">
+
   <div class="container">
-<a class="navbar-brand d-flex align-items-center" 
-   href="{{ '/' | relative_url }}">
 
-  <img 
-    src="{{ '/assets/images/logo.png' | relative_url }}" 
-    alt="Bosai Homes"
-    height="42">
-  
-<span class="fw-semibold fs-5 ms-2 text-uppercase">
-  Bosai Homes
-</span>
-  
-  <span class="fw-bold fs-5 ms-2 text-dark">
-    Door Hardware
-  </span>
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center"
+       href="{{ '/' | relative_url }}">
 
-</a>
+      <img
+        src="{{ '/assets/images/logo.png' | relative_url }}"
+        alt="Bosai Homes Logo"
+        height="44"
+        class="me-2">
 
-    <button class="navbar-toggler" type="button"
+      <span class="d-flex flex-column lh-sm">
+
+        <span class="fw-bold fs-5 text-white">
+          BOSAI HOMES
+        </span>
+
+        <span class="small text-white-50">
+          Door Hardware Supplier
+        </span>
+
+      </span>
+
+    </a>
+
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler"
+            type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
+
     </button>
 
+
+    <!-- Navigation Menu -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
         <li class="nav-item">
-          <a class="nav-link {% if page.url == '/' %}active{% endif %}"
-             href="{{ '/' | relative_url }}">Home</a>
+          <a class="nav-link px-lg-3 {% if page.url == '/' %}active{% endif %}"
+             href="{{ '/' | relative_url }}">
+            Home
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if page.url contains '/products' %}active{% endif %}"
-             href="{{ '/products/' | relative_url }}">Products</a>
+          <a class="nav-link px-lg-3 {% if page.url contains '/products' %}active{% endif %}"
+             href="{{ '/products/' | relative_url }}">
+            Products
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if page.url == '/about/' %}active{% endif %}"
-             href="{{ '/about/' | relative_url }}">About</a>
+          <a class="nav-link px-lg-3 {% if page.url == '/about/' %}active{% endif %}"
+             href="{{ '/about/' | relative_url }}">
+            About Us
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if page.url == '/contact/' %}active{% endif %}"
-             href="{{ '/contact/' | relative_url }}">Contact</a>
+          <a class="nav-link px-lg-3 {% if page.url == '/contact/' %}active{% endif %}"
+             href="{{ '/contact/' | relative_url }}">
+            Contact
+          </a>
         </li>
+
       </ul>
+
     </div>
+
   </div>
+
 </nav>
+
