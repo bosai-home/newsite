@@ -16,7 +16,7 @@ seo_keywords: •	3dhinges,doorhardware,concealedhinge,doorfittings
 image: /assets/images/3d-adjustable-concealed-hinge-g40A-BLACK.jpg
 
 # 业务属性
-views: 53222
+views: 12222
 date: 2026-11-3
 ---
 Heavy-Duty 3D Adjustable Concealed Hinges | Premium Architectural Door Hardware  
